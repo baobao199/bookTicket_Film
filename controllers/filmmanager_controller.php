@@ -1,6 +1,7 @@
 <?php
 	require_once("base_controller.php");
 	require_once("models/FilmManager.php");
+	require_once("function.php");
 	class FilmmanagerController extends BaseController{
 		function __construct()
 		{
@@ -30,13 +31,21 @@
 			$decription = filter_input(INPUT_POST,'decription',FILTER_SANITIZE_STRING);
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$filmManager = FilmManager::addFilm($id, $name, $director, $actor, $genre, $startDay, $time, $language, $decription, $image);
-			$this->render('index', array());
+
+			$path = uploadImage();
+
+			$filmManager = FilmManager::addFilm($id, $name, $director, $actor, $genre, $startDay, $time, $language, $decription, $path);
+
+			header("LOCATION: index.php?controller=filmmanager");
 		}
 		function delete(){
+
 			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
 			$filmManager = FilmManager::deleteFilm($id);
+
 			$this->render('delete', array());
+
+			header("LOCATION: index.php?controller=filmmanager");
 		}
 
 		function edit(){
@@ -56,9 +65,11 @@
 			$decription = filter_input(INPUT_POST,'decription',FILTER_SANITIZE_STRING);
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$filmManager = FilmManager::updateFilm($id,$name,$director,$actor,$genre,$startDay,$time,$language,$decription,$image);
+			$path = uploadImage();
+
+			$filmManager = FilmManager::updateFilm($id,$name,$director,$actor,$genre,$startDay,$time,$language,$decription,$path);
 			
-			$this->render('index', array());
+			header("LOCATION: index.php?controller=filmmanager");
 		}
 	}
 ?>

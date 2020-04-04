@@ -7,17 +7,17 @@
 				foreach ($filmmanager as $f) {
 					$maPhim = $f->id;
 					$tenPhim = $f->name;
-					$daoDien = $f->decription;
+					$daoDien = $f->director;
 					$dienVien = $f->actor;
 					$theLoai = $f->genre;
 					$khoiChieu = $f->startDay;
 					$thoiLuong = $f->time;
 					$ngonNgu = $f->language;
 					$moTa = $f->decription;
-					$hinhANh = $f->image;
+					$hinhAnh = $f->image;
 				}
 			?>
-	    	<form action="?controller=filmmanager&action=update" method="post">
+	    	<form action="?controller=filmmanager&action=update" method="post" enctype="multipart/form-data">
 	    		<div class="form-group">
 	      			<label>Mã phim</label>
 	      			<input type="text" class="form-control" value="<?= $maPhim ?>" name="id">
@@ -55,9 +55,9 @@
 	  				<textarea class="form-control" rows="5" name="decription"> <?= $moTa ?></textarea>
 				</div>
 		    	<div class="form-group">
-		      		<label for="pwd">Hình</label>
-		      		<input type="text" class="form-control" value="<?= $hinhANh ?>" name="image">
-		    	</div>
+		    		<label for="comment">Hình ảnh</label>
+      				<input type="file" class="form-control-file border" name="image">
+    			</div>
 	    		<button type="submit" class="btn btn-primary">Sửa</button>
 	  		</form>
 		</div>

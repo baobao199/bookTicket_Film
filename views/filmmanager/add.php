@@ -1,9 +1,11 @@
+<?php
+	require_once('function.php');
+?>
 <link rel="stylesheet" type="text/css" href="css/add.css">
 <div class="container">
   		<h2>THÊM PHIM MỚI</h2>
 		<div class="container-left">
-			
-	    	<form action="?controller=filmmanager&action=upload" method="post">
+	    	<form action="?controller=filmmanager&action=upload" method="post" enctype="multipart/form-data">
 	    		<div class="form-group">
 	      			<label>Mã phim</label>
 	      			<input type="text" class="form-control" id="id" name="id">
@@ -41,9 +43,9 @@
 	  				<textarea class="form-control" rows="5" id="decription" name="decription"></textarea>
 				</div>
 		    	<div class="form-group">
-		      		<label for="pwd">Hình</label>
-		      		<input type="text" class="form-control" id="language" name="image">
-		    	</div>
+		    		<label for="comment">Hình ảnh</label>
+      				<input type="file" class="form-control-file border" name="image">
+    			</div>
 	    		<button type="submit" class="btn btn-primary">Thêm</button>
 	    		<button type="submit" class="btn btn-danger">Mặc định</button>
 	  		</form>
