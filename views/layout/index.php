@@ -15,7 +15,7 @@
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		  <!-- Brand -->
-		  	<a class="navbar-brand" href="index.html">LOTTE CINEMA</a>
+		  	<a class="navbar-brand" href="index.php">LOTTE CINEMA</a>
 
 		  <!-- Links -->
 		  	<ul class="navbar-nav ml-auto">
@@ -29,7 +29,7 @@
 				    </a>
 				      <div class="dropdown-menu">
 				        <a class="dropdown-item" href="index.php?controller=filmmanager&action=index">Quản lý phim</a>
-				        <a class="dropdown-item" href="ticketmanger.html">Quản lý vé</a>
+				        <a class="dropdown-item" href="index.php?controller=ticketmanager&action=index">Quản lý vé</a>
 				        <a class="dropdown-item" href="#">Quản lý trailer phim</a>
 				        <a class="dropdown-item" href="moviescreening.html">Quản lý xuất chiếu</a>
 				        <a class="dropdown-item" href="movietheatermanger.html">Quản lý rạp phim</a>					        

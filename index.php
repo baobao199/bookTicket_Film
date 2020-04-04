@@ -4,7 +4,8 @@
 
 	$supported_controller = array(
 		'home' => array('index','error'),
-		'filmmanager' => array('index','add','delete','edit','upload','update')
+		'filmmanager' => array('index','add','delete','edit','upload','update'),
+		'ticketmanager' => array('index','add','delete','edit','upload','update'),
 	);
 
 	if(isset($_GET['controller']))
