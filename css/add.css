@@ -1,0 +1,20 @@
+.container{
+	width: 100%;
+}
+.container-left{
+	padding-bottom: 50px;
+	width: 50%;
+	float: left;
+	position: inherit ;
+}
+h2{
+	color: #00BFFF
+}
+label{
+	font-weight: bold;
+}
+.container-right{
+	width: 50%;
+	float: left;
+	padding-left: 50px;
+}
