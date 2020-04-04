@@ -58,8 +58,7 @@
 		      		<label for="pwd">Hình</label>
 		      		<input type="text" class="form-control" value="<?= $hinhANh ?>" name="image">
 		    	</div>
-	    		<button type="submit" class="btn btn-primary">Thêm</button>
-	    		<button type="submit" class="btn btn-danger">Mặc định</button>
+	    		<button type="submit" class="btn btn-primary">Sửa</button>
 	  		</form>
 		</div>
 

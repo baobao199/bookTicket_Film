@@ -46,7 +46,18 @@
 		}
 		function update(){
 			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
-			$filmManager = FilmManager::updateFilm($id);
+			$name = filter_input(INPUT_POST,'name',FILTER_SANITIZE_STRING);
+			$director = filter_input(INPUT_POST,'director',FILTER_SANITIZE_STRING);
+			$actor = filter_input(INPUT_POST,'actor',FILTER_SANITIZE_STRING);
+			$genre = filter_input(INPUT_POST,'genre',FILTER_SANITIZE_STRING);
+			$startDay = filter_input(INPUT_POST,'startDay',FILTER_SANITIZE_STRING);
+			$time = filter_input(INPUT_POST,'time',FILTER_SANITIZE_STRING);
+			$language = filter_input(INPUT_POST,'language',FILTER_SANITIZE_STRING);
+			$decription = filter_input(INPUT_POST,'decription',FILTER_SANITIZE_STRING);
+			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
+
+			$filmManager = FilmManager::updateFilm($id,$name,$director,$actor,$genre,$startDay,$time,$language,$decription,$image);
+			
 			$this->render('index', array());
 		}
 	}

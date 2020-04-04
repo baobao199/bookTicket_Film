@@ -70,12 +70,12 @@
 			return $stm->rowCount() == 1;
 		}
 
-		public function updateFilm($id){
-			$sql = "UPDATE phim SET tenPhim = :name, daoDien =  :director, dienVien = :actor, theLoai = :genre, khoiChieu = :startDay, thoiLuong :timeL, ngonNgu = :language, moTa = :decription, hinhAnh :image where maPhim = :id ";
+		public function updateFilm($id,$name,$director,$actor,$genre,$startDay,$time,$language,$decription,$image){
+			$sql = "UPDATE phim SET tenPhim = :name, daoDien =  :director, dienVien = :actor, theLoai = :genre, khoiChieu = :startDay, thoiLuong =:timeF, ngonNgu = :language, moTa = :decription, hinhAnh = :image where maPhim = :id ";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
-			$stm->execute(array(':id'=>$id, ':name'=>$name, ':director'=>$director, ':actor'=>$actor, ':genre'=>$genre, ':startDay'=>$startDay, ':timeF'=>$time, ':language'=>$language, ':decription'=>$decription, ':image'=>$image));
+			$stm->execute(array(':id'=>$id,':name'=>$name, ':director'=>$director, ':actor'=>$actor, ':genre'=>$genre, ':startDay'=>$startDay, ':timeF'=>$time, ':language'=>$language, ':decription'=>$decription, ':image'=>$image));
 
 			return $stm->rowCount() == 1;
 		}
