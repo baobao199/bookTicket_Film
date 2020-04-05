@@ -16,7 +16,18 @@
 		}
 
 		function add(){
-			echo 'add';
+		 	$this->render('add',array());
+		}
+		function upload(){
+
+			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+			$name = filter_input(INPUT_POST,'name',FILTER_SANITIZE_STRING);
+			$price = filter_input(INPUT_POST,'price',FILTER_SANITIZE_NUMBER_INT);
+
+			$ticketManager = TicketManager::addTicket($id,$name,$price);
+
+
+			header("LOCATION: index.php?controller=ticketmanager");
 		}
 		function delete(){
 			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
@@ -25,7 +36,19 @@
 			$this->render('delete', array());
 		}
 		function edit(){
-			echo 'edit';
+			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
+			$ticketManager = TicketManager::getTicketById($id);
+			$this->render('edit', array('ticketmanager'=>$ticketManager));
+		}
+		function update(){
+			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+			$name = filter_input(INPUT_POST,'name',FILTER_SANITIZE_STRING);
+			$price = filter_input(INPUT_POST,'price',FILTER_SANITIZE_NUMBER_INT);
+
+			$ticketManager = TicketManager::updateTicket($id,$name,$price);
+
+			header("LOCATION: index.php?controller=ticketmanager");
+			
 		}
 	}
 ?>

@@ -39,6 +39,39 @@
 			return $stm->rowCount() == 1;
 		}
 
+		public function addTicket($id, $name, $price){
+			$sql = "INSERT INTO loaivephim VALUES ( :id, :name, :price)";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+
+			$stm->execute(array(':id'=>$id, ':name'=>$name, ':price'=>$price));
+
+			return $stm->rowCount() == 1;
+		}
+
+		public function updateTicket($id, $name, $price){
+			$sql = "UPDATE loaivephim SET  tenLoai = :name, giaTien = :price where maLoai = :id ";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+
+			$stm->execute(array(':id'=>$id,':name'=>$name,':price'=>$price));
+
+			return $stm->rowCount() == 1;
+		}
+
+		public function getTicketById($id){
+			$sql = "select * from loaivephim where maLoai = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array('id'=> $id));
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= new TicketManager($item['maLoai'],$item['tenLoai'],$item['giaTien']);		
+			}
+			return $list;
+		}
+
 
 	}
 ?>

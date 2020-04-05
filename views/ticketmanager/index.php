@@ -2,7 +2,7 @@
 <div class="container">
 	<div><h2>DANH SÁCH CÁC LOẠI VÉ</h2></div>
 	<div>
-		<a class="btn btn-info" href="#">Thêm vé</a>
+		<a class="btn btn-info" href="?controller=ticketmanager&action=add">Thêm vé</a>
 	</div>
 	<div class="table-responsive">
 		<table class="table table-bordered">
