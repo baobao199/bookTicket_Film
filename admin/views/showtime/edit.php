@@ -1,31 +1,41 @@
 <link rel="stylesheet" type="text/css" href="css/add.css">
 <div class="container">
-  		<h2>THÊM XUẤT CHIẾU MỚI</h2>
+		<?php 
+			foreach ($showtime as $s) {
+				$id = $s->id;
+				$idFilm = $s->idFilm;
+				$dateF = $s->dateF;
+				$timeF = $s->timeF;
+				$movieTheater = $s->movieTheater;
+				$room = $s->room;
+			}
+		?>
+  		<h2>SỬA XUẤT CHIẾU PHIM</h2>
 		<div class="container-left">
-	    	<form action="?controller=showtime&action=upload" method="post">
+	    	<form action="?controller=showtime&action=update" method="post">
 	    		<div class="form-group">
 	      			<label>Mã xuất chiếu</label>
-	      			<input type="text" class="form-control" name="id">
+	      			<input value="<?= $id ?>" type="text" class="form-control" name="id">
 	   			</div>
 		    	<div class="form-group">
 		      		<label>Mã phim</label>
-		      		<input type="text" class="form-control" name="idfilm">
+		      		<input value="<?= $idFilm ?>" type="text" class="form-control" name="idfilm">
 		    	</div>
 		    	<div class="form-group">
 		      		<label for="text">Ngày chiếu</label>
-		      		<input type="text" class="form-control" name="datef">
+		      		<input value="<?= $dateF ?>" type="date" class="form-control" name="datef">
 		    	</div>
 		    	<div class="form-group">
 		      		<label for="text">Giờ chiếu</label>
-		      		<input type="text" class="form-control" name="timef">
+		      		<input value="<?= $timeF ?>" type="time" class="form-control" name="timef">
 		    	</div>
 		    	<div class="form-group">
 		    		<label for="text">Mã rạp chiếu</label>
-      				<input type="text" class="form-control" name="movietheater">
+      				<input value="<?= $movieTheater ?>" type="text" class="form-control" name="movietheater">
     			</div>
     			<div class="form-group">
 		    		<label for="text">Phòng chiếu</label>
-      				<input type="text" class="form-control" name="room">
+      				<input value="<?= $room ?>" type="text" class="form-control" name="room">
     			</div>
 	    		<button type="submit" class="btn btn-primary">Thêm</button>
 	    		<button type="submit" class="btn btn-danger">Mặc định</button>

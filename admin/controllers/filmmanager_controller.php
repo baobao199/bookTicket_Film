@@ -1,7 +1,7 @@
 <?php
 	require_once("base_controller.php");
 	require_once("models/FilmManager.php");
-	require_once("function.php");
+	require_once("../function.php");
 	class FilmmanagerController extends BaseController{
 		function __construct()
 		{

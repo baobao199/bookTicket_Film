@@ -31,7 +31,11 @@
 
 		}
 		function delete(){
+			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
 
+			$showTime = ShowTime::deleteShowTime($id);
+
+			$this->render('delete',array());
 		}
 		function edit(){
 			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
@@ -39,7 +43,16 @@
 			$this->render('edit',array('showtime'=>$showTime));
 		}
 		function update(){
-			
+			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+			$idFilm = filter_input(INPUT_POST,'idfilm',FILTER_SANITIZE_STRING);
+			$dateF = filter_input(INPUT_POST,'datef',FILTER_SANITIZE_STRING);
+			$timeF = filter_input(INPUT_POST,'timef',FILTER_SANITIZE_STRING);
+			$movieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
+			$room = filter_input(INPUT_POST,'room',FILTER_SANITIZE_STRING);
+
+			$showTime = ShowTime::updateShowTime($id, $idFilm, $dateF, $timeF, $movieTheater, $room);
+
+			header("LOCATION: index.php?controller=showtime");
 		}
 	}
 ?>

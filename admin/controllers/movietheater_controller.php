@@ -1,6 +1,6 @@
 <?php
 	require_once("base_controller.php");
-	require_once("function.php");
+	require_once("../function.php");
 	require_once("models/MovieTheater.php");
 	class MovieTheaterController extends BaseController{
 		function __construct()

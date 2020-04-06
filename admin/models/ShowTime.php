@@ -1,5 +1,5 @@
 <?php 
-	require_once("config.php");
+	require_once("../config.php");
 	class ShowTime{
 		public $id;
 		public $idFilm;

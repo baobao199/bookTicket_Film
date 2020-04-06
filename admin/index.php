@@ -1,6 +1,6 @@
 <?php 
-	require_once("config.php");
-	require_once("function.php");
+	require_once("../config.php");
+	require_once("../function.php");
 
 	$supported_controller = array(
 		'home' => array('index','error'),
@@ -8,6 +8,7 @@
 		'ticketmanager' => array('index','add','delete','edit','upload','update'),
 		'movietheater' => array('index','add','delete','edit','upload','update'),
 		'showtime' => array('index','add','delete','edit','upload','update'),
+		'customer' => array('index','add','delete','edit','upload','update'),
 	);
 
 	if(isset($_GET['controller']))
