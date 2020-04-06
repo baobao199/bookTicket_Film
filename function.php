@@ -26,7 +26,7 @@
 			//lấy đường dẫn tạm lưu nội dung file:
 			$file_tmp =$_FILES['image']['tmp_name'];
 			//tạo đường dẫn lưu file:
-			$path ="views/moivetheater/uploads/".$file_name;
+			$path ="views/movietheater/uploads/".$file_name;
 
 			move_uploaded_file($file_tmp,$path);
 		}
