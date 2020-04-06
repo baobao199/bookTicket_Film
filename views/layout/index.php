@@ -31,7 +31,7 @@
 				        <a class="dropdown-item" href="index.php?controller=filmmanager&action=index">Quản lý phim</a>
 				        <a class="dropdown-item" href="index.php?controller=ticketmanager&action=index">Quản lý vé</a>
 				        <a class="dropdown-item" href="#">Quản lý trailer phim</a>
-				        <a class="dropdown-item" href="moviescreening.html">Quản lý xuất chiếu</a>
+				        <a class="dropdown-item" href="index.php?controller=showtime&action=index">Quản lý xuất chiếu</a>
 				        <a class="dropdown-item" href="?controller=movietheater&action=index">Quản lý rạp phim</a>					        
 				      </div>
 			    </li>
