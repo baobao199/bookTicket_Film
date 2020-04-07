@@ -14,5 +14,10 @@
 			$moviePlaying = FilmManager::getAll();
 			$this->render('index',array('movieplaying'=>$moviePlaying));
 		}
+		function detail(){
+			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+			$moviePlaying = FilmManager::getFilmById($id);
+			$this->render('detail',array('movieplaying'=>$moviePlaying));
+		}
 	}
 ?>

@@ -22,18 +22,18 @@
 		    		
 		    		?>
 			    		<tr>
-			        	<td style="width: 450px"><img src="<?= $m->image ?>" height="200px" width="400px"></td>
-			        	<td><?= $m->id ?></td>
-			        	<td><?= $m->name ?></td>
-			        	<td style="width: 200px"><?= $m->address ?></td>
-			        	<td><?= $m->phoneNumber ?></td>
-			        	<td style="width: 150px">
-							<a class="btn btn-info" href="?controller=movietheater&action=edit&id=<?= $m->id ?>">
-								<i class="material-icons">&#xe254;</i>
-							</a>
-							<a class="btn btn-danger" href="?controller=movietheater&action=delete&id=<?= $m->id ?>">
-								<i class="material-icons">&#xe872;</i>
-							</a>
+				        	<td style="width: 450px"><img src="<?=$m->image?>" height="200px" width="400px"></td>
+				        	<td><?= $m->id ?></td>
+				        	<td><?= $m->name ?></td>
+				        	<td style="width: 200px"><?= $m->address ?></td>
+				        	<td><?= $m->phoneNumber ?></td>
+				        	<td style="width: 150px">
+								<a class="btn btn-info" href="?controller=movietheater&action=edit&id=<?= $m->id ?>">
+									<i class="material-icons">&#xe254;</i>
+								</a>
+								<a class="btn btn-danger" href="?controller=movietheater&action=delete&id=<?= $m->id ?>">
+									<i class="material-icons">&#xe872;</i>
+								</a>
 			        	</td>
 			        <?php
 		        	}

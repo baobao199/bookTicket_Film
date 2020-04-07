@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="css/content.css">
 <div class="container">
     <div class='hot col-12'>
         <h3>PHIM ĐANG CHIẾU<hr></h1> 
@@ -6,17 +7,24 @@
          <?php 
             foreach ($movieplaying as $m) {
                 ?>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-6">
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-6 cnt">
                         <div class="cell">
                
                             <div class="infor">
-                                <img src="<?= $m->image ?>" />
-                                <h5><?= $m->name ?></h5>
+                                <img src="<?= "admin/".$m->image ?>" />
+                                <p style="font-weight: bold;"><?= $m->name ?></p>
                                 <p>Thời gian: <?= $m->time ?><br>
                                 Thể loại: <?= $m->genre ?> <br>
                                 Khởi chiếu: <?= $m->startDay ?></p>
-                                <a href="#" class="btn btn-danger">Đặt vé</a>
-                                <a href="#" class="btn btn-info">Xem chi tiết</a>
+                                <form action="?controller=movieplaying&action=detail" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="<?= $m->id ?>"/>
+                                     <button type="submit" class="btn btn-danger">Đặt vé</button>
+                                </form>
+
+                                <form action="?controller=movieplaying&action=detail" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="<?= $m->id ?>"/>
+                                     <button type="submit" class="btn btn-info">Xem chi tiết</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -26,4 +34,4 @@
     </div>
 
 </div>
-<div id="footer">Copyright @ your Website 2017</div>
+

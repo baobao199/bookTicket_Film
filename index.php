@@ -4,7 +4,7 @@
 
 	$supported_controller = array(
 		'home' => array('index','error'),
-		'movieplaying' => array('index'),
+		'movieplaying' => array('index','detail'),
 	);
 
 	if(isset($_GET['controller']))

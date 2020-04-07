@@ -35,7 +35,7 @@
 							Phim
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="index.php?controller=movieplaying">Phim Đang chiếu</a>
+							<a class="dropdown-item" href="index.php?controller=movieplaying">Phim đang chiếu</a>
 							<a class="dropdown-item" href="upcoming.html">Phim sắp chiếu</a>
 						</div>
 					</li>

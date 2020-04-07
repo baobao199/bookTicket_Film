@@ -7,18 +7,10 @@
             <div class="col-12 carousel-inner">
                 <div class=" item carousel-item active">
                     <img src="img/poster/fz2.jpg" alt="FROZEN 2">
-                  <div class="carousel-caption">
-                    <h3>FROZEN 2</h3>
-                    <p>We had such a great time in LA!</p>
-                  </div>   
                 </div>
 
                 <div class="item carousel-item">
                     <img src="img/poster/spm.jpg" alt="END GAME">
-                  <div class="carousel-caption">
-                    <h3>END GAME</h3>
-                    <p>Thank you, Chicago!</p>
-                  </div> 
                 </div>
                 
                 <a class=" carousel-control-prev" href="#demo" data-slide="prev">
