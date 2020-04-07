@@ -1,5 +1,5 @@
 <?php
-	require_once('function.php');
+	require_once('../function.php');
 ?>
 <link rel="stylesheet" type="text/css" href="css/add.css">
 <div class="container">
