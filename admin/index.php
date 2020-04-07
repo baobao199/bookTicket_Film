@@ -9,6 +9,7 @@
 		'movietheater' => array('index','add','delete','edit','upload','update'),
 		'showtime' => array('index','add','delete','edit','upload','update'),
 		'customer' => array('index','add','delete','edit','upload','update'),
+		'slide' => array('index','add','delete','edit','upload','update'),
 	);
 
 	if(isset($_GET['controller']))

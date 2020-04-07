@@ -1,16 +1,30 @@
+<link rel="stylesheet" type="text/css" href="css/slide.css">
 <div id="demo" class=" carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="1">
+                <li data-target="#demo" data-slide-to="2">
             </ul>
-            
+            <?php
+                require_once("models/Slide.php");
+                $slide = Slide::getAll();
+                $slide1 = $slide[0]->image;
+                $slide2 = $slide[1]->image;
+                $slide3 = $slide[2]->image;
+
+            ?>
+                
             <div class="col-12 carousel-inner">
                 <div class=" item carousel-item active">
-                    <img src="img/poster/fz2.jpg" alt="FROZEN 2">
+                    <img src="<?= "admin/".$slide1 ?>" alt="FROZEN 2"> 
                 </div>
 
                 <div class="item carousel-item">
-                    <img src="img/poster/spm.jpg" alt="END GAME">
+                    <img src="<?= "admin/".$slide2 ?>" alt="END GAME">
+                </div>
+
+                <div class="item carousel-item">
+                    <img src="<?= "admin/".$slide3 ?>" alt="END GAME">
                 </div>
                 
                 <a class=" carousel-control-prev" href="#demo" data-slide="prev">
@@ -20,7 +34,8 @@
                   <span class="carousel-control-next-icon"></span>
                 </a>
             </div>
-        </div>
+</div>
+
 <div class="container">
             <div class="row">
                 

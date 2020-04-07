@@ -1,7 +1,8 @@
 <?php
 	require_once("base_controller.php");
+	require_once("models/Slide.php");
+	require_once("function.php");
 	class HomeController extends BaseController{
-		
 		function __construct()
 		{
 			$this->name = 'home';
@@ -11,7 +12,8 @@
 		}
 		function index()
 		{
-			$this->render('index', array());
+			$slide = Slide::getAll();
+			$this->render('index',array('slide'=>$slide));
 		}
 	}
 ?>
