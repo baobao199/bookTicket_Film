@@ -33,7 +33,7 @@
 				        <a class="dropdown-item" href="index.php?controller=slide&action=index">Quản lý quảng cáo</a>
 				        <a class="dropdown-item" href="index.php?controller=showtime&action=index">Quản lý xuất chiếu</a>
 				        <a class="dropdown-item" href="?controller=movietheater&action=index">Quản lý rạp phim</a>
-				        <a class="dropdown-item" href="">Khuyến mãi</a>					        
+				        <a class="dropdown-item" href="">Khuyến mãi</a>
 				      </div>
 			    </li>
 			    <li class="nav-item dropdown">
@@ -42,7 +42,7 @@
 				    </a>
 				      	<div class="dropdown-menu">
 				        	<a class="dropdown-item" href="index.php?controller=filmmanager&action=index">Phim đang chiếu</a>   
-				        	<a class="dropdown-item" href="">Phim đang sắp chiếu</a>
+				        	<a class="dropdown-item" href="index.php?controller=moviecomingsoon&action=index">Phim đang sắp chiếu</a>
 				        	<a class="dropdown-item" href="">Phim nổi bật</a>   
 			    </li>
 			    <li class="nav-item">
