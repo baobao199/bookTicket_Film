@@ -43,7 +43,7 @@
 				      	<div class="dropdown-menu">
 				        	<a class="dropdown-item" href="index.php?controller=filmmanager&action=index">Phim đang chiếu</a>   
 				        	<a class="dropdown-item" href="index.php?controller=moviecomingsoon&action=index">Phim đang sắp chiếu</a>
-				        	<a class="dropdown-item" href="">Phim nổi bật</a>   
+				        	<a class="dropdown-item" href="index.php?controller=outstanding&action=edit">Phim nổi bật</a>   
 			    </li>
 			    <li class="nav-item">
 			      <a class="nav-link" href="members.html">Quản trị khách hàng</a>

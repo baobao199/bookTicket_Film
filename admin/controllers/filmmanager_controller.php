@@ -71,5 +71,9 @@
 			
 			header("LOCATION: index.php?controller=filmmanager");
 		}
+
+		function outstanding(){
+			
+		}
 	}
 ?>
