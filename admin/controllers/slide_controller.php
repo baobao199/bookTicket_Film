@@ -26,7 +26,7 @@
 			$idCT = filter_input(INPUT_POST,'idct',FILTER_SANITIZE_STRING);
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$path = uploadImageAdvertisement();
+			$path = uploadImage('slide');
 
 			$slide = Slide::addSlide($id, $name, $idCT, $path);
 
@@ -52,7 +52,7 @@
 			$idCT = filter_input(INPUT_POST,'idct',FILTER_SANITIZE_STRING);
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$path = uploadImageAdvertisement();
+			$path = uploadImage('slide');
 
 			$slide = Slide::updateSlide($id, $name, $idCT, $path);
 

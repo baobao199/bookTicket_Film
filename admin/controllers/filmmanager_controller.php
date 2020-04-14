@@ -32,7 +32,7 @@
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
 
-			$path = uploadImageFilm();
+			$path = uploadImage('filmmanager');
 
 			$filmManager = FilmManager::addFilm($id, $name, $director, $actor, $genre, $startDay, $time, $language, $decription, $path);
 
@@ -65,7 +65,7 @@
 			$decription = filter_input(INPUT_POST,'decription',FILTER_SANITIZE_STRING);
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$path = uploadImageFilm();
+			$path = uploadImage('filmmanager');
 
 			$filmManager = FilmManager::updateFilm($id,$name,$director,$actor,$genre,$startDay,$time,$language,$decription,$path);
 			

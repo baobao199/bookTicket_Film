@@ -3,7 +3,6 @@
   		<h2>CẬP NHẬT THÔNG TIN PHIM</h2>
 		<div class="container-left">
 			<?php 
-				require_once("controllers/filmmanager_controller.php");
 				foreach ($filmmanager as $f) {
 					$maPhim = $f->id;
 					$tenPhim = $f->name;

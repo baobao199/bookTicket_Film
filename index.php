@@ -7,6 +7,7 @@
 		'movieplaying' => array('index','detail'),
 		'outstanding' => array('detail'),
 		'moviecomingsoon' => array('index','detail'),
+		'promotion' => array('detail'),
 	);
 
 	if(isset($_GET['controller']))

@@ -24,7 +24,7 @@
 			$phoneNumber = filter_input(INPUT_POST,'phonenumber',FILTER_SANITIZE_STRING);
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$path = uploadImageMovieTheater();
+			$path = uploadImage('movietheater');
 
 			$movieTheater = MovieTheater::addMovieTheater($id, $name, $address, $phoneNumber, $path);
 
@@ -55,7 +55,7 @@
 			$phoneNumber = filter_input(INPUT_POST,'phonenumber',FILTER_SANITIZE_STRING);
 			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$path = uploadImageMovieTheater();
+			$path = uploadImage('movietheater');
 
 			$movieTheater = MovieTheater::updateMoiveTheater($id, $name, $address, $phoneNumber, $path);
 

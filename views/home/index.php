@@ -81,11 +81,49 @@
         <div class='hot col-12'>
             <br>
             <h5>SỰ KIỆN<hr></h5> 
+            <?php 
+            foreach ($event as $e) {
+                ?>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-6 cnt">
+                        <div class="cell">
+               
+                            <div class="infor">
+                                <img src="<?= "admin/".$e->image ?>" />
+                                <p style="font-weight: bold;"><?= $e->name ?></p>
+                                <form action="?controller=promotion&action=detail" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="<?= $e->id ?>"/>
+                                     <button type="submit" class="btn btn-info">Xem chi tiết</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+            }     
+        ?>   
         </div>
                 
-        <div class='hot col-12'>
+        <div class='hot col-12' style="padding-bottom: 50px">
             <br>
-            <h5>KHUYẾN MÃI<hr></h5> 
+            <h5>KHUYẾN MÃI<hr></h5>
+            <?php 
+            foreach ($promotion as $p) {
+                ?>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-6 cnt">
+                        <div class="cell">
+               
+                            <div class="infor">
+                                <img src="<?= "admin/".$p->image ?>" />
+                                <p style="font-weight: bold;"><?= $p->name ?></p>
+                                <form action="?controller=promotion&action=detail" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="<?= $p->id ?>"/>
+                                     <button type="submit" class="btn btn-info">Xem chi tiết</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+            }     
+        ?>    
         </div>
                 
     </div>
