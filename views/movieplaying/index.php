@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/content.css">
-<div class="container">
+<div class="container" style="padding-bottom: 20px">
     <div class='hot col-12'>
         <h3>PHIM ĐANG CHIẾU<hr></h1> 
     </div>
@@ -13,7 +13,7 @@
                             <div class="infor">
                                 <img src="<?= "admin/".$m->image ?>" />
                                 <p style="font-weight: bold;"><?= $m->name ?></p>
-                                <p>Thời gian: <?= $m->time ?><br>
+                                <p style="height: 80px">Thời gian: <?= $m->time ?><br>
                                 Thể loại: <?= $m->genre ?> <br>
                                 Khởi chiếu: <?= $m->startDay ?></p>
                                 <form action="?controller=movieplaying&action=detail" method="post" style="display: inline;">

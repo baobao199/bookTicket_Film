@@ -1,4 +1,6 @@
-<link rel="stylesheet" type="text/css" href="css/slide.css">
+<link rel="stylesheet" type="text/css" href="css/slide">
+<link rel="stylesheet" type="text/css" href="css/content.css">
+
 <div id="demo" class=" carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -37,66 +39,50 @@
 </div>
 
 <div class="container">
-            <div class="row">
-                
-                <div class='hot col-12'>
-                    <h5>PHIM ĐƯỢC XEM NHIỀU NHẤT<hr></h5> 
-                </div>
-                
-                <div class="col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cell">
-                        <div class="infor">
-                            <img src="img/fz2/Frozen2.jpg" />
-                           <h5>FROZENT II</h5>
-                            <p>Thời gian 120 phút <br> 20/03/2020</p>
-                            <a href="#" class="btn btn-primary">Đặt vé</a>
-                            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cell">
-                        <div class="infor">
-                            <img src="img/spm/spm.jpg" />
-                            <h5>FROZENT II</h5>
-                            <p>Thời gian 120 phút <br> 20/03/2020</p>
-                            <a href="#" class="btn btn-primary">Đặt vé</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cell">
-                        <div class="infor">
-                            <img src="img/fz2/Frozen2.jpg" />
-                            <h5>FROZENT II</h5>
-                            <p>Thời gian 120 phút <br> 20/03/2020</p>
-                            <a href="#" class="btn btn-primary">Đặt vé</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-3 col-md-4 col-6">
-                    <div class="cell">
-                        <div class="infor">
-                            <img src="img/fz2/Frozen2.jpg" />
-                            <h5>FROZENT II</h5>
-                            <p>Thời gian 120 phút <br> 20/03/2020</p>
-                            <a href="#" class="btn btn-primary">Đặt vé</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class='hot col-12'>
-                    <h5>SỰ KIỆN<hr></h5> 
-                </div>
-                
-                <div class='hot col-12'>
-                    <h5>KHUYẾN MÃI<hr></h5> 
-                </div>
-                
-            </div>
-
+    <div class="row">
+        <div class='hot col-12'>
+            <h5>PHIM ĐƯỢC XEM NHIỀU NHẤT<hr></h5> 
         </div>
-    <div id="footer">Copyright @ your Website 2017</div>
+        <?php 
+            foreach ($outstanding as $m) {
+                ?>
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-6 cnt">
+                        <div class="cell">
+               
+                            <div class="infor">
+                                <img src="<?= "admin/".$m->image ?>" />
+                                <p style="font-weight: bold;"><?= $m->name ?></p>
+                                <p style="height: 80px">Thời gian: <?= $m->time ?><br>
+                                Thể loại: <?= $m->genre ?> <br>
+                                Khởi chiếu: <?= $m->startDay ?></p>
+                                <form action="?controller=outstanding&action=detail" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="<?= $m->id ?>"/>
+                                     <button type="submit" class="btn btn-danger">Đặt vé</button>
+                                </form>
+
+                                <form action="?controller=movieplaying&action=detail" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="<?= $m->id ?>"/>
+                                     <button type="submit" class="btn btn-info">Xem chi tiết</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+            }     
+        ?>   
+
+        <div class='hot col-12'>
+            <br>
+            <h5>SỰ KIỆN<hr></h5> 
+        </div>
+                
+        <div class='hot col-12'>
+            <br>
+            <h5>KHUYẾN MÃI<hr></h5> 
+        </div>
+                
+    </div>
+
+</div>
+    
+<div id="footer">Copyright @ your Website 2017</div>

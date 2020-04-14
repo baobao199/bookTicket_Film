@@ -5,6 +5,7 @@
 	$supported_controller = array(
 		'home' => array('index','error'),
 		'movieplaying' => array('index','detail'),
+		'outstanding' => array('detail'),
 		'moviecomingsoon' => array('index','detail'),
 	);
 

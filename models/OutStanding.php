@@ -1,6 +1,6 @@
 <?php
 	require_once("config.php");
-	class FilmManager{
+	class OutStanding{
 		public $id;
 		public $name;
 		public $director;
@@ -42,18 +42,18 @@
 
 		public function getAll()
 		{
-			$sql = "SELECT * from phim UNION SELECT * from phimnoibat";
+			$sql = "select * from phimnoibat";
 			$db = DB::getDB();
 			$stm = $db->query($sql);
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new FilmManager($item['maPhim'], $item['tenPhim'], $item['daoDien'], $item['dienVien'], $item['theLoai'], $item['khoiChieu'], $item['thoiLuong'], $item['ngonNgu'], $item['moTa'], $item['hinhAnh']);		
+				$list[]	= new OutStanding($item['maPhim'], $item['tenPhim'], $item['daoDien'], $item['dienVien'], $item['theLoai'], $item['khoiChieu'], $item['thoiLuong'], $item['ngonNgu'], $item['moTa'], $item['hinhAnh']);		
 			}
 			return $list;
 		}
 		public function deleteFilm($id){
-			$sql = "delete from phim where maPhim = :id";
+			$sql = "delete from phimnoibat where maPhim = :id";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array(':id'=>$id));
@@ -61,7 +61,7 @@
 			return $stm->rowCount() == 1;
 		}
 		public function addFilm($id, $name, $director, $actor, $genre, $startDay, $time, $language, $decription, $image){
-			$sql = "INSERT INTO phim VALUES ( :id, :name, :director,:actor, :genre, :startDay, :timeF, :language, :decription, :image)";
+			$sql = "INSERT INTO phimnoibat VALUES ( :id, :name, :director,:actor, :genre, :startDay, :timeF, :language, :decription, :image)";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
@@ -71,7 +71,7 @@
 		}
 
 		public function updateFilm($id,$name,$director,$actor,$genre,$startDay,$time,$language,$decription,$image){
-			$sql = "UPDATE phim SET tenPhim = :name, daoDien =  :director, dienVien = :actor, theLoai = :genre, khoiChieu = :startDay, thoiLuong =:timeF, ngonNgu = :language, moTa = :decription, hinhAnh = :image where maPhim = :id ";
+			$sql = "UPDATE phimnoibat SET tenPhim = :name, daoDien =  :director, dienVien = :actor, theLoai = :genre, khoiChieu = :startDay, thoiLuong =:timeF, ngonNgu = :language, moTa = :decription, hinhAnh = :image where maPhim = :id ";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
@@ -81,16 +81,17 @@
 		}
 
 		public function getFilmById($id){
-			$sql = "SELECT * from phim UNION SELECT * from phimnoibat where maPhim = :id";
+			$sql = "select * from phimnoibat where maPhim = :id";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array('id'=> $id));
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new FilmManager($item['maPhim'], $item['tenPhim'], $item['daoDien'], $item['dienVien'], $item['theLoai'], $item['khoiChieu'], $item['thoiLuong'], $item['ngonNgu'], $item['moTa'], $item['hinhAnh']);		
+				$list[]	= new OutStanding($item['maPhim'], $item['tenPhim'], $item['daoDien'], $item['dienVien'], $item['theLoai'], $item['khoiChieu'], $item['thoiLuong'], $item['ngonNgu'], $item['moTa'], $item['hinhAnh']);		
 			}
 			return $list;
 		}
+
 	} 
 ?>
