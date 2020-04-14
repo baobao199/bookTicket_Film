@@ -1,8 +1,8 @@
 <link rel="stylesheet" type="text/css" href="css/content.css">
 <div class="container">
-	<div><h2>DANH SÁCH CÁC PHIM CHIẾU</h2></div>
+	<div><h2>DANH SÁCH CÁC PHIM NỔI BẬT</h2></div>
 	<div>
-		<a class="btn btn-info" href="?controller=filmmanager&action=add">Thêm phim mới</a>
+		<a class="btn btn-info" href="?controller=outstanding&action=add">Thêm phim mới</a>
 	</div>
 	<div class="table-responsive">
 		<table class="table table-bordered">
@@ -23,27 +23,27 @@
 		    </thead>
 		    <tbody>
 		      	<?php 
-		      		foreach ($filmmanager as $f) 
+		      		foreach ($outstanding as $o) 
 		      		{
 		      			?>
 							<tr>
 
-					        	<td><img src="<?= $f->image ?>" height='100px' width='80px'></td>
-					        	<td><?= $f->id ?></td>
-					        	<td><?= $f->name ?></td>
-					        	<td><?= $f->director ?></td>
-					        	<td><?= $f->actor ?></td>
-					        	<td><?= $f->genre ?></td>
-					        	<td><?= $f->startDay ?></td>
-					        	<td><?= $f->time ?></td>
-					        	<td><?= $f->language?></td>
-					        	<td style="text-align: justify"><?= $f->decription ?></td>
+					        	<td><img src="<?=  $o->image ?>" height='100px' width='80px'></td>
+					        	<td><?= $o->id ?></td>
+					        	<td><?= $o->name ?></td>
+					        	<td><?= $o->director ?></td>
+					        	<td><?= $o->actor ?></td>
+					        	<td><?= $o->genre ?></td>
+					        	<td><?= $o->startDay ?></td>
+					        	<td><?= $o->time ?></td>
+					        	<td><?= $o->language?></td>
+					        	<td style="text-align: justify"><?= $o->decription ?></td>
 					        	<td>
-									<a class="btn btn-info" href="?controller=filmmanager&action=edit&id=<?= $f->id ?>">
+									<a class="btn btn-info" href="?controller=outstanding&action=edit&id=<?= $o->id ?>">
 										<i class="material-icons">&#xe254;</i>                                            
 									</a>
 									<br><br>
-									<a class="btn btn-danger" href="?controller=filmmanager&action=delete&id=<?= $f->id ?>">
+									<a class="btn btn-danger" href="?controller=outstanding&action=delete&id=<?= $o->id ?>">
 										<i class="material-icons">&#xe872;</i>
 									</a>
 					        	</td>

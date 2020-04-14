@@ -93,30 +93,5 @@
 			return $list;
 		}
 
-		public function getFilmOutStandingById($id){
-			$sql = "select a.maPhim, a.tenPhim, a.daoDien, a.dienVien, a.theLoai, a.khoiChieu, a.thoiLuong, a.ngonNgu, a.moTa, a.hinhAnh from phim a, phimnoibat b where a.maPhim = :id and b.maPhim = :id and a.maPhim = b.maPhim";
-			$db = DB::getDB();
-			$stm = $db->prepare($sql);
-			$stm->execute(array(':id'=> $id));
-			$list = array();
-			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
-			{
-				$list[]	= new FilmManager($item['maPhim'], $item['tenPhim'], $item['daoDien'], $item['dienVien'], $item['theLoai'], $item['khoiChieu'], $item['thoiLuong'], $item['ngonNgu'], $item['moTa'], $item['hinhAnh']);		
-			}
-			return $list;
-		}
-
-		public function getOutStanding()
-		{
-			$sql = "select * from phimnoibat";
-			$db = DB::getDB();
-			$stm = $db->query($sql);
-			$list = array();
-			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
-			{
-				$list[]	= new FilmManager($item['maPhim']);		
-			}
-			return $list;
-		} 
 	} 
 ?>

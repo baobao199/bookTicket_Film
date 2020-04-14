@@ -7,19 +7,69 @@
 		{
 			$this->name = 'outstanding';
 		}
+		function error(){
+			echo 'error';
+		}
+		function index()
+		{
+			$outStanding = OutStanding::getAll();
+			$this->render('index', array('outstanding' => $outStanding));
+		}
+
+		function add(){
+			$this->render('add', array());
+		}
+		function upload(){
+			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+			$name = filter_input(INPUT_POST,'name',FILTER_SANITIZE_STRING);
+			$director = filter_input(INPUT_POST,'director',FILTER_SANITIZE_STRING);
+			$actor = filter_input(INPUT_POST,'actor',FILTER_SANITIZE_STRING);
+			$genre = filter_input(INPUT_POST,'genre',FILTER_SANITIZE_STRING);
+			$startDay = filter_input(INPUT_POST,'startDay',FILTER_SANITIZE_STRING);
+			$time = filter_input(INPUT_POST,'time',FILTER_SANITIZE_STRING);
+			$language = filter_input(INPUT_POST,'language',FILTER_SANITIZE_STRING);
+			$decription = filter_input(INPUT_POST,'decription',FILTER_SANITIZE_STRING);
+			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
+
+
+			$path = uploadImageOutStanding();
+
+			$outStanding = OutStanding::addFilm($id, $name, $director, $actor, $genre, $startDay, $time, $language, $decription, $path);
+
+			header("LOCATION: index.php?controller=outstanding");
+		}
+		function delete(){
+
+			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
+			$outStanding = OutStanding::deleteFilm($id);
+
+			$this->render('delete', array());
+
+			header("LOCATION: index.php?controller=outstanding");
+		}
+
 		function edit(){
-			$outStanding = OutStanding::getOutStanding();
-
-			$this->render('edit',array('outstanding'=>$outStanding));
-
+			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
+			$outStanding = OutStanding::getFilmById($id);
+			$this->render('edit', array('outstanding'=>$outStanding));
 		}
 		function update(){
-			$stt = filter_input(INPUT_GET,'stt',FILTER_SANITIZE_STRING);
-			$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
+			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+			$name = filter_input(INPUT_POST,'name',FILTER_SANITIZE_STRING);
+			$director = filter_input(INPUT_POST,'director',FILTER_SANITIZE_STRING);
+			$actor = filter_input(INPUT_POST,'actor',FILTER_SANITIZE_STRING);
+			$genre = filter_input(INPUT_POST,'genre',FILTER_SANITIZE_STRING);
+			$startDay = filter_input(INPUT_POST,'startDay',FILTER_SANITIZE_STRING);
+			$time = filter_input(INPUT_POST,'time',FILTER_SANITIZE_STRING);
+			$language = filter_input(INPUT_POST,'language',FILTER_SANITIZE_STRING);
+			$decription = filter_input(INPUT_POST,'decription',FILTER_SANITIZE_STRING);
+			$image = filter_input(INPUT_POST,'image',FILTER_SANITIZE_STRING);
 
-			$outStanding = OutStanding::updateOutStanding($stt,$id);
+			$path = uploadImageOutStanding();
+
+			$outStanding = OutStanding::updateFilm($id,$name,$director,$actor,$genre,$startDay,$time,$language,$decription,$path);
 			
-			header("LOCATION: index.php?controller=outstanding&action=edit");
+			header("LOCATION: index.php?controller=outstanding");
 		}
 	}
 ?>

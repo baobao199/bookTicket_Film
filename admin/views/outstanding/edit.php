@@ -1,38 +1,68 @@
-<link rel="stylesheet" type="text/css" href="css/content.css">
+<link rel="stylesheet" type="text/css" href="css/add.css">
 <div class="container">
-	<div style="text-align: center;"><h2>DANH SÁCH PHIM NỔI BẬC</h2></div>
-	<div class="table-responsive">
-		<table class="table table-bordered" style="width: 500px; margin: auto;">
-		    <thead>
-		      	<tr>
-		      		<th>STT</th>
-		        	<th>Mã phim nổi bật</th>
-		        	<th>Công cụ</th>
-		        </tr>
-			</thead>
-			<tbody>
-				<?php
-					$id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
-					foreach ($outstanding as $o) 
-					{
-					 	?>
-					 		<tr>
-					 			<td><?= $o->stt ?></td>
-					        	<td>
-					        		<div class="form-group">
-	      								<input value="<?= $o->id ?>" type="text" class="form-control" name="id">
-	   								</div>
-					        	</td>
-					        	<td style="width: 200px">
-									<a class="btn btn-info" href="?controller=outstanding&action=update&stt=<?= $o->stt ?>&id=<?= $id ?>">
-									<i class="material-icons">&#xe254;</i>
-								</a>
-		        				</td>
-		        			</tr>
-					 	<?php
-					} 
-				?>
-		    </tbody>
-		</table>
-  	</div>
-</div>
+  		<h2>CẬP NHẬT THÔNG TIN PHIM NỔI BẬT</h2>
+		<div class="container-left">
+			<?php 
+				foreach ($outstanding as $f) {
+					$maPhim = $f->id;
+					$tenPhim = $f->name;
+					$daoDien = $f->director;
+					$dienVien = $f->actor;
+					$theLoai = $f->genre;
+					$khoiChieu = $f->startDay;
+					$thoiLuong = $f->time;
+					$ngonNgu = $f->language;
+					$moTa = $f->decription;
+					$hinhAnh = $f->image;
+				}
+			?>
+	    	<form action="?controller=outstanding&action=update" method="post" enctype="multipart/form-data">
+	    		<div class="form-group">
+	      			<label>Mã phim</label>
+	      			<input type="text" class="form-control" value="<?= $maPhim ?>" name="id">
+	   			</div>
+		    	<div class="form-group">
+		      		<label>Tên phim</label>
+		      		<input type="text" class="form-control" value="<?= $tenPhim ?>" name="name">
+		    	</div>
+		    	<div class="form-group">
+		      		<label for="pwd">Đạo diễn</label>
+		      		<input type="text" class="form-control" value="<?= $daoDien ?>" name="director">
+		    	</div>
+		    	<div class="form-group">
+		      		<label for="pwd">Diễn viên</label>
+		      		<input type="text" class="form-control" value="<?= $dienVien ?>" name="actor">
+		    	</div>
+		    	<div class="form-group">
+		      		<label for="pwd">Thể loại</label>
+		      		<input type="text" class="form-control" value="<?= $theLoai ?>" name="genre">
+		    	</div>
+		    	<div class="form-group">
+		      		<label for="pwd">Khởi chiếu</label>
+		      		<input type="text" class="form-control" value="<?= $khoiChieu ?>" name="startDay">
+		    	</div>
+		    	<div class="form-group">
+		      		<label for="pwd">Thời lượng</label>
+		      		<input type="text" class="form-control" value="<?= $thoiLuong ?>" name="time">
+		    	</div>
+		    	<div class="form-group">
+		      		<label for="pwd">Ngôn ngữ</label>
+		      		<input type="text" class="form-control" value="<?= $ngonNgu ?>" name="language">
+		    	</div>
+		    	<div class="form-group">
+	  				<label for="comment">Mô tả</label>
+	  				<textarea class="form-control" rows="5" name="decription"> <?= $moTa ?></textarea>
+				</div>
+		    	<div class="form-group">
+		    		<label for="comment">Hình ảnh</label>
+      				<input type="file" class="form-control-file border" name="image">
+    			</div>
+	    		<button type="submit" class="btn btn-primary">Sửa</button>
+	  		</form>
+		</div>
+
+		<div class="container-right">
+			<img src='img/addfilm.jpg' height="400px" width="300px">
+			<img style="margin-top: 40px; margin-left: 60px;" src='img/rap_wlor.jpg' height="300px" width="500px">
+		</div>
+	</div>

@@ -5,7 +5,7 @@
 	$supported_controller = array(
 		'home' => array('index','error'),
 		'filmmanager' => array('index','add','delete','edit','upload','update'),
-		'outstanding' => array('edit','update'),
+		'outstanding' => array('index','add','delete','edit','upload','update'),
 		'ticketmanager' => array('index','add','delete','edit','upload','update'),
 		'movietheater' => array('index','add','delete','edit','upload','update','outstanding'),
 		'moviecomingsoon' => array('index','add','delete','edit','upload','update'),
