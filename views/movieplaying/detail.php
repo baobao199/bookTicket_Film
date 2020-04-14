@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/content.css">
 <link rel="stylesheet" type="text/css" href="css/detail.css">
 
-<div class="container">
+<div class="container" >
     <div class='hot col-12'>
         <h3><hr>Nội Dung Phim<hr></h3> 
     </div>
@@ -20,7 +20,7 @@
   	}
   ?>
 			
-<div class="container">     
+<div class="container" style="padding-bottom: 20px">     
 	<div class="row">
 		<div class="col-md-4 col-sm-4 col-xs-8 col-xs-offset-2 col-md-offset-0">
 			<img src="<?= "admin/".$hinhAnh ?>" width='300px' height='400px'>

@@ -20,7 +20,7 @@
   	}
   ?>
 			
-<div class="container">     
+<div class="container" style="padding-bottom: 20px">     
 	<div class="row">
 		<div class="col-md-4 col-sm-4 col-xs-8 col-xs-offset-2 col-md-offset-0">
 			<img src="<?= "admin/".$hinhAnh ?>" width='300px' height='400px'>

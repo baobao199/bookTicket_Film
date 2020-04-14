@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="css/content.css">
-<div class="container">
+<div class="container" style="padding-bottom: 20px">
     <div class='hot col-12'>
         <h3>PHIM SẮP CHIẾU<hr></h1> 
     </div>

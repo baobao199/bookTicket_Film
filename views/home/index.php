@@ -1,11 +1,13 @@
 <link rel="stylesheet" type="text/css" href="css/slide">
 <link rel="stylesheet" type="text/css" href="css/content.css">
-
+<link rel="stylesheet" type="text/css" href="css/footer.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <div id="demo" class=" carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#demo" data-slide-to="0" class="active"></li>
                 <li data-target="#demo" data-slide-to="1">
                 <li data-target="#demo" data-slide-to="2">
+                <li data-target="#demo" data-slide-to="3">
             </ul>
             <?php
                 require_once("models/Slide.php");
@@ -13,6 +15,7 @@
                 $slide1 = $slide[0]->image;
                 $slide2 = $slide[1]->image;
                 $slide3 = $slide[2]->image;
+                $slide4 = $slide[3]->image;
 
             ?>
                 
@@ -27,6 +30,10 @@
 
                 <div class="item carousel-item">
                     <img src="<?= "admin/".$slide3 ?>" alt="END GAME">
+                </div>
+
+                <div class="item carousel-item">
+                    <img src="<?= "admin/".$slide4 ?>" alt="END GAME">
                 </div>
                 
                 <a class=" carousel-control-prev" href="#demo" data-slide="prev">
@@ -85,4 +92,3 @@
 
 </div>
     
-<div id="footer">Copyright @ your Website 2017</div>
