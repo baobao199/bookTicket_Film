@@ -25,6 +25,18 @@
 			$this->image = $image;
 		}
 
+		public function getAll(){
+			$sql = "select * from khuyenmai";
+			$db = DB::getDB();
+			$stm = $db->query($sql);
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= new Promotion($item['maKM'], $item['tenKM'], $item['loaiKM'], $item['noiDung'], $item['hinhAnh']);		
+			}
+			return $list;
+		}
+		
 		public function getPromotionById($id){
 			$sql = "select * from khuyenmai where maKM = :id";
 			$db = DB::getDB();

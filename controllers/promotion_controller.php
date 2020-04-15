@@ -7,6 +7,10 @@
 		{
 			$this->name = 'promotion';
 		}
+		function index(){
+			$promotion = Promotion::getAll();
+			$this->render('index',array('promotion'=>$promotion));
+		}
 		function detail(){
 			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
 			$promotion = Promotion::getPromotionById($id);

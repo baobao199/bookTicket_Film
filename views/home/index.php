@@ -48,7 +48,7 @@
 <div class="container">
     <div class="row">
         <div class='hot col-12'>
-            <h5 style="font-weight: bolder;">PHIM ĐƯỢC XEM NHIỀU NHẤT<hr></h5> 
+            <h2 style="font-weight: bolder;">PHIM ĐƯỢC XEM NHIỀU NHẤT<hr></h2> 
         </div>
         <?php 
             foreach ($outstanding as $m) {
@@ -81,7 +81,7 @@
     <div class="row">
         <div class='hot col-12'>
              <br>
-            <h5 style="font-weight: bolder;">SỰ KIỆN<hr></h5> 
+            <h2 style="font-weight: bolder;">SỰ KIỆN<hr></h2> 
         </div>
         <?php 
             foreach ($event as $e) {
@@ -106,7 +106,7 @@
     <div class="row" style="padding-bottom: 20px">
             <div class='hot col-12'>
                  <br>
-                <h5 style="font-weight: bolder;">KHUYẾN MÃI<hr></h5> 
+                <h2 style="font-weight: bolder;">KHUYẾN MÃI<hr></h2> 
             </div>
             <?php 
                 foreach ($promotion as $p) {

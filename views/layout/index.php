@@ -41,7 +41,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-                        <a class="nav-link" href="#">Khuyến mãi</a>
+                        <a class="nav-link" href="index.php?controller=promotion">Khuyến mãi</a>
                     </li>
 
                     <li class="nav-item">
