@@ -47,5 +47,28 @@
 				redirect("?controller=account&action=login","Please login first");
 			}
 		}
+
+		function edit(){
+			$username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+			$account = Account::getAccountById($username);
+			$this->render('edit',array('account'=>$account));
+		}
+
+		function update(){
+			$username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+			$fullName = filter_input(INPUT_POST,'fullName',FILTER_SANITIZE_STRING);
+			$sex = filter_input(INPUT_POST,'sex',FILTER_SANITIZE_STRING);
+			$birthday = filter_input(INPUT_POST,'birthday',FILTER_SANITIZE_STRING);
+			$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_STRING);
+			$address = filter_input(INPUT_POST,'address',FILTER_SANITIZE_STRING);
+			$phone = filter_input(INPUT_POST,'phone',FILTER_SANITIZE_STRING);
+
+			Account::updateAccount($username, $fullName, $sex, $birthday, $email, $address, $phone);
+
+			$account = Account::reload($username);
+			$_SESSION['acc'] = serialize($account);
+
+			redirect("?controller=account&action=profile");
+		}
 	}
 ?> 

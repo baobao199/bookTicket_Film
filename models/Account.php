@@ -4,7 +4,7 @@
 		public $username;
 		public $password;
 		public $fullName;
-		public $gioiTinh;
+		public $sex;
 		public $birthday;
 		public $email;
 		public $address;
@@ -16,18 +16,18 @@
 		 * @param    $username   
 		 * @param    $password   
 		 * @param    $fullName   
-		 * @param    $gioiTinh   
+		 * @param    $sex   
 		 * @param    $birthday   
 		 * @param    $email   
 		 * @param    $address   
 		 * @param    $phone   
 		 */
-		public function __construct($username, $password, $fullName, $gioiTinh, $birthday, $email, $address, $phone)
+		public function __construct($username, $password, $fullName, $sex, $birthday, $email, $address, $phone)
 		{
 			$this->username = $username;
 			$this->password = $password;
 			$this->fullName = $fullName;
-			$this->gioiTinh = $gioiTinh;
+			$this->sex = $sex;
 			$this->birthday = $birthday;
 			$this->email = $email;
 			$this->address = $address;
@@ -53,6 +53,37 @@
 			else{
 				return null;
 			}
+		}
+
+		public function reload($username){
+			$sql = "SELECT * FROM khachhang where taiKhoan = :username";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array(':username'=>$username));
+			$i = $stm->fetch(PDO::FETCH_ASSOC);
+
+			return new Account($i['taiKhoan'], $i['matKhau'], $i['hoTen'], $i['gioiTinh'], $i['ngaySinh'], $i['email'], $i['diaChi'], $i['SDT']);
+		}
+
+		public function getAccountById($id){
+			$sql = "SELECT * FROM khachhang WHERE taiKhoan = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array(':id'=>$id));
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $i) 
+			{
+				$list[]	= new Account($i['taiKhoan'], $i['matKhau'], $i['hoTen'], $i['gioiTinh'], $i['ngaySinh'], $i['email'], $i['diaChi'], $i['SDT']);	
+			}
+			return $list;
+		}
+
+		public function updateAccount($username, $fullName, $sex, $birthday, $email, $address, $phone){
+			$sql = "UPDATE khachhang SET hoTen = :fullName, gioiTinh = :sex, ngaySinh = :birthday, email = :email, diaChi = :address, SDT = :phone  where taiKhoan = :username ";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array(':fullName'=>$fullName, ':sex'=>$sex, ':birthday'=>$birthday, ':email'=>$email, ':address'=>$address, ':phone'=>$phone, ':username'=>$username));
+
+			return $stm->rowCount() == 1;
 		}
 	}
 ?>

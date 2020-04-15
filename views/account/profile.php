@@ -17,7 +17,7 @@
 	}
 </style>
     <div class='hot col-12'>
-       	<h3>Thông tin tài khoản<hr></h3> 
+       	<h3>THÔNG TIN TÀI KHOẢN<hr></h3> 
     </div>
 <div class="container">     
 		<div class="row">
@@ -37,7 +37,7 @@
 
 						<tr>
 							<th>Giới tính:</th>
-							<td><?= $acc->gioiTinh ?></td>
+							<td><?= $acc->sex ?></td>
 						</tr>
 
 						<tr>
@@ -64,7 +64,10 @@
 				
 				</div>
 				<br>
-				<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-danger btn-sm">Chỉnh sửa thông tin</button>
+				<form action="?controller=account&action=edit" method="post">
+					<input type="hidden" name="username" value="<?= $acc->username ?>">
+					<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-danger btn-sm">Chỉnh sửa thông tin</button>
+				</form>
 			</div>
 		</div>
 </div>

@@ -6,7 +6,7 @@
 	require_once('models/Account.php');
 	require_once('function.php');
 
-	//$list = Account::login('admin','123456')
-	Account::login('user','123456');
-	//print_r($list);
+	$list = Account::getAccountById('user1');
+	//Account::login('user','123456');
+	print_r($list);
 ?>
