@@ -70,5 +70,50 @@
 
 			redirect("?controller=account&action=profile");
 		}
+
+		function register(){
+			$this->render('register', array());
+		}
+
+		function upload(){
+			$username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+			$password = filter_input(INPUT_POST,'password',FILTER_SANITIZE_STRING);
+			$fullName = filter_input(INPUT_POST,'fullName',FILTER_SANITIZE_STRING);
+			$sex = filter_input(INPUT_POST,'sex',FILTER_SANITIZE_STRING);
+			$birthday = filter_input(INPUT_POST,'birthday',FILTER_SANITIZE_STRING);
+			$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_STRING);
+			$address = filter_input(INPUT_POST,'address',FILTER_SANITIZE_STRING);
+			$phone = filter_input(INPUT_POST,'phone',FILTER_SANITIZE_STRING);
+
+			Account::addAccount($username, $password, $fullName, $sex, $birthday, $email, $address, $phone);
+
+			redirect("?controller=account&action=login");
+		}
+
+		function password(){
+			$username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+			$account = Account::getAccountById($username);
+			$this->render('password',array('account'=>$account));
+		}
+
+		function updatepass(){
+			$userName = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+			$passOld = filter_input(INPUT_POST,'passold',FILTER_SANITIZE_STRING);
+			$passNew = filter_input(INPUT_POST,'passnew',FILTER_SANITIZE_STRING);
+			$passConfirm = filter_input(INPUT_POST,'passconfirm',FILTER_SANITIZE_STRING);
+
+			$pass =  Account::getAccountById($userName);
+
+			foreach ($pass as $o) {
+				$p = $o->password;
+			}
+
+			if($passOld === $p && $passNew === $passConfirm){
+				Account::updatePassowrd($userName,$passNew);
+				unset($_SESSION['acc']);
+				redirect("?controller=account&action=login");
+			}
+
+		}
 	}
 ?> 

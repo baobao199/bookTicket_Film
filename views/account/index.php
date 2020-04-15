@@ -1,6 +1,6 @@
 <style>
 	.container{
-		padding-bottom: 80px;
+		padding-bottom: 51px;
 	}
 	h1{
 		padding: 10px 0px 10px 0px;
@@ -36,5 +36,5 @@
 		<button type="submit" class="btn btn-primary">Đăng nhập</button>
 	</form>
 
-	<a href="register.html">Đăng ký tài khoản</a>
+	<a href="?controller=account&action=register">Đăng ký tài khoản</a>
 </div>

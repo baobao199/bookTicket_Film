@@ -33,7 +33,6 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="?controller=account&action=profile">Thông tin tài khoản</a>
                                 <a class="dropdown-item" href="">Thông tin đặt vé</a>
-                                <a class="dropdown-item" href="">Đổi mật khẩu</a>
                                 <a class="dropdown-item" href="?controller=account&action=logout">Đăng xuất</a>
                             </div>
                         </li>

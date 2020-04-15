@@ -85,5 +85,24 @@
 
 			return $stm->rowCount() == 1;
 		}
+
+		public function addAccount($username, $password, $fullName, $sex, $birthday, $email, $address, $phone){
+			$sql = "INSERT INTO khachhang VALUES ( :username, :password, :fullName, :sex, :birthday, :email, :address, :phone)";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+
+			$stm->execute(array(':username'=>$username, ':password'=>$password, ':fullName'=>$fullName, ':sex'=>$sex, ':birthday'=>$birthday, ':email'=>$email, ':address'=>$address, ':phone'=>$phone));
+
+			return $stm->rowCount() == 1;
+		}
+
+		public function updatePassowrd($username, $password){
+			$sql = "UPDATE khachhang SET matKhau = :password  where taiKhoan = :username ";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array(':password'=>$password, ':username'=>$username));
+
+			return $stm->rowCount() == 1;
+		}
 	}
 ?>

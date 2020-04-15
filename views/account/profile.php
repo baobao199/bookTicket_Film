@@ -64,9 +64,13 @@
 				
 				</div>
 				<br>
-				<form action="?controller=account&action=edit" method="post">
+				<form action="?controller=account&action=edit" method="post" style="display: inline;">
 					<input type="hidden" name="username" value="<?= $acc->username ?>">
-					<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-danger btn-sm">Chỉnh sửa thông tin</button>
+					<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-info btn-sm">Chỉnh sửa thông tin</button>
+				</form>
+				<form action="?controller=account&action=password" method="post" style="display: inline;" >
+					<input type="hidden" name="username" value="<?= $acc->username ?>">
+					<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-danger btn-sm">Đổi mật khẩu</button>
 				</form>
 			</div>
 		</div>

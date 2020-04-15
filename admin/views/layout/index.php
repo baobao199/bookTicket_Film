@@ -46,7 +46,7 @@
 				        	<a class="dropdown-item" href="index.php?controller=outstanding&action=index">Phim nổi bật</a>   
 			    </li>
 			    <li class="nav-item">
-			      <a class="nav-link" href="members.html">Quản trị khách hàng</a>
+			      <a class="nav-link" href="?controller=customer">Quản trị khách hàng</a>
 			    </li>
 			    <li class="nav-item">
 			      <a class="nav-link" href="#">Quản trị đặt vé</a>
