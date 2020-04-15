@@ -3,8 +3,10 @@
 	require_once('models/Slide.php');
 	require_once('models/OutStanding.php');
 	require_once('models/Promotion.php');
+	require_once('models/Account.php');
 	require_once('function.php');
 
-	$list = Promotion::getPromotion('SK');
-	print_r($list);
+	//$list = Account::login('admin','123456')
+	Account::login('user','123456');
+	//print_r($list);
 ?>

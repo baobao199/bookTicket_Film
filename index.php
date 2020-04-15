@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require_once("config.php");
 	require_once("function.php");
 
@@ -8,6 +9,7 @@
 		'outstanding' => array('detail'),
 		'moviecomingsoon' => array('index','detail'),
 		'promotion' => array('index','detail'),
+		'account' => array('index','profile','login','logout'),
 	);
 
 	if(isset($_GET['controller']))
