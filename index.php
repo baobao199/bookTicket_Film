@@ -8,6 +8,7 @@
 		'movieplaying' => array('index','detail'),
 		'outstanding' => array('detail'),
 		'moviecomingsoon' => array('index','detail'),
+		'movietheater' => array('index','detail'),
 		'promotion' => array('index','detail'),
 		'account' => array('index','profile','login','logout','edit', 'update','register', 'upload', 'password', 'updatepass'),
 	);

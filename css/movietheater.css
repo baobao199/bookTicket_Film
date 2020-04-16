@@ -1,0 +1,66 @@
+h3{
+  font-weight: bold;
+}
+.cinemas-area ul {
+  float: left;
+  width: 100%;
+}
+.cinemas-area ul li {
+  float: left;
+  margin-top: 15px;
+  width: 20%;
+}
+.cinemas-area ul li span {
+  color: #dbdbdb;
+	font-size: 14px;
+}
+.cinemas-area li span, .cinemas-list li span {
+  cursor: pointer;
+}
+.cinemas-list {
+  float: left;
+  width: 100%;
+	
+  padding: 0 0 15px 0;
+  padding-left: 180px;
+}
+a{
+  color:white;
+}
+a:hover{
+  color: red;
+}
+.cinemas-list ul {
+  float: left;
+  padding: 0px 10px;
+  width:100%;
+}
+.cinemas-list ul li {
+  float: left;
+  margin-top: 15px;
+	width:25%;
+}
+.cinemas-list ul li span {
+  color: #dbdbdb;
+	font-size: 12px;
+}
+.active{
+  color: red;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+ul{
+  list-style-type: none;
+}
+.collapse{
+
+  padding-top: 10px;
+}
+#backdrop{
+  float: left;
+}
+.backdrop{
+  float: left;
+}

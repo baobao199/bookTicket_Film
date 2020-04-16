@@ -23,7 +23,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Rạp Chiếu Phim</a>
+                <a class="nav-link" href="index.php?controller=movietheater">Rạp Chiếu Phim</a>
             </li>
             <?php
                 if(isLoggedIn()){

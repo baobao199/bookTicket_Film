@@ -1,5 +1,5 @@
 <?php
-	require_once("../config.php");
+	require_once("config.php");
 	class MovieTheater{
 		public $id;
 		public $name;
@@ -35,38 +35,7 @@
 			}
 			return $list;
 		}
-
-		public function addMovieTheater($id, $name, $address, $phoneNumber, $image)
-		{
-			$sql = "INSERT INTO rapphim VALUES (:id, :name, :address, :phoneNumber, :image)";
-			$db = DB::getDB();
-			$stm = $db->prepare($sql);
-			$stm->execute(array(':id'=>$id, ':name'=>$name, ':address'=>$address, ':phoneNumber'=>$phoneNumber,':image'=>$image));
-
-			return $stm->rowCount() == 1;
-		}
-
-		public function deleteMovieTheater($id)
-		{
-			$sql = "DELETE from rapphim where maRapPhim = :id";
-			$db = DB::getDB();
-			$stm = $db->prepare($sql);
-			$stm->execute(array(':id'=>$id));
-
-			return $stm->rowCount() == 1;
-		}
-
-		public function updateMoiveTheater($id, $name, $address, $phoneNumber, $image)
-		{
-			$sql ="UPDATE rapphim SET tenRapPhim = :name , diaChi = :address, soDienThoai = :phoneNumber, hinhAnh = :image where maRapPhim = :id";
-
-			$db = DB::getDB();
-			$stm = $db->prepare($sql);
-			$stm->execute(array(':id'=>$id, ':name'=>$name, ':address'=>$address, ':phoneNumber'=>$phoneNumber, ':image'=>$image));
-
-			return $stm->rowCount() == 1;
-		}
-
+		
 		public function getMovieTheaterById($id)
 		{
 			$sql = "select * from rapphim where maRapPhim = :id";
