@@ -1,6 +1,6 @@
 <?php
 	require_once("../config.php");
-	class Account{
+	class Admin{
 		public $username;
 		public $password;
 		public $fullName;
@@ -20,7 +20,7 @@
 		}
 
 		public function login($username, $password){
-			$sql = "SELECT * FROM admin where taiKhoan = :username";
+			$sql = "SELECT * FROM admin where adminUser = :username";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array(':username'=>$username));
@@ -28,8 +28,8 @@
 			if($i){
 				// $hashed = $i['matKhau'];
 				// if(password_verify($password, $hashed)){
-				if($i['matKhau'] === $password){
-					return new Account($i['taiKhoan'], $i['matKhau'], $i['hoTen']);
+				if($i['adminPass'] === $password){
+					return new Admin($i['adminUser'], $i['adminPass'], $i['adminName']);
 				}
 				else{
 					return null;

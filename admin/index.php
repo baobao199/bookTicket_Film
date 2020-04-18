@@ -3,7 +3,7 @@
 	require_once("../function.php");
 
 	$supported_controller = array(
-		'admin' => array('login'),
+		'admin'=>array('index','login'),
 		'home' => array('index','error'),
 		'filmmanager' => array('index','add','delete','edit','upload','update'),
 		'outstanding' => array('index','add','delete','edit','upload','update'),
@@ -32,12 +32,13 @@
 	else
 	{
 		if(isLoggedIn()){
-			$controller = 'home';
+			
+			$controller = 'admin';
 			$action = 'index';
 		}
 		else{
-			$controller = 'admin';
-			$action = 'login';
+			$controller = 'home';
+			$action = 'index';
 		}
 	}
 

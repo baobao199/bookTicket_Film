@@ -1,5 +1,5 @@
 <main>
-    <form class="login">
+    <form action="?controller=admin&action=login" method="post" class="login">
        	<h3>ĐĂNG NHẬP</h3>
 		<label for= "nameAccount">Tên đăng nhập</label><br>
 		<input type="text" name="username" id="nameAccount"><br>
