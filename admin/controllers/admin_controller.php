@@ -44,5 +44,40 @@
 			unset($_SESSION['acc']);
 			redirect("?controller=admin&action=login");
 		}
+
+		function profile(){
+			if(isLoggedIn()){
+				$this->render('profile', array(), 'template_2');
+			}
+			else{
+				redirect("?controller=admin&action=login","Please login first");
+			}
+		}
+
+		function password(){
+			$username = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+			$admin = Admin::getAdminById($username);
+			$this->render('password',array('admin'=>$admin));
+		}
+
+		function updatepass(){
+			$userName = filter_input(INPUT_POST,'username',FILTER_SANITIZE_STRING);
+			$passOld = filter_input(INPUT_POST,'passold',FILTER_SANITIZE_STRING);
+			$passNew = filter_input(INPUT_POST,'passnew',FILTER_SANITIZE_STRING);
+			$passConfirm = filter_input(INPUT_POST,'passconfirm',FILTER_SANITIZE_STRING);
+
+			$admin = Admin::getAdminById($userName);
+
+			foreach ($admin as $a) {
+				$p = $a->password;
+			}
+
+			if($passOld === $p && $passNew === $passConfirm){
+				Admin::updatePassowrd($userName,$passNew);
+				unset($_SESSION['acc']);
+				redirect("?controller=admin&action=login");
+			}
+
+		}
 	}
 ?>

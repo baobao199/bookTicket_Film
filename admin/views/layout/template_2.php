@@ -56,7 +56,7 @@
 				        Tài khoản
 				    </a>
 				      <div class="dropdown-menu">
-				        <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+				        <a class="dropdown-item" href="?controller=admin&action=profile">Thông tin tài khoản</a>
 				        <a class="dropdown-item" href="?controller=admin&action=logout">Đăng xuất</a>		     
 				      </div>
 			    </li>

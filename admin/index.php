@@ -4,7 +4,7 @@
 	require_once("../function.php");
 
 	$supported_controller = array(
-		'admin'=>array('index','login','logout'),
+		'admin'=>array('index','login','logout','profile','password','updatepass'),
 		'home' => array('index','error'),
 		'filmmanager' => array('index','add','delete','edit','upload','update'),
 		'outstanding' => array('index','add','delete','edit','upload','update'),
