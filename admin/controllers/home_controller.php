@@ -11,7 +11,12 @@
 		}
 		function index()
 		{
-			$this->render('index', array());
+			if(isLoggedIn()){
+				$this->render('index', array());
+			}
+			else{
+				redirect("?controller=admin&action=login");
+			}
 		}
 	}
 ?>

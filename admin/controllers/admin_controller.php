@@ -12,6 +12,9 @@
 		}
 		function index()
 		{
+			if(isLoggedIn()){
+				redirect("index.php?controller=home");
+			}
 			$this->render('index', array(), 'template_1');
 		}
 		function login(){
@@ -35,6 +38,11 @@
 					redirect("index.php?controller=admin","usename or password is not valid");
 				}
 			}
+		}
+
+		function logout(){
+			unset($_SESSION['acc']);
+			redirect("?controller=admin&action=login");
 		}
 	}
 ?>

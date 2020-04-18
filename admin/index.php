@@ -1,9 +1,10 @@
 <?php 
+	session_start();
 	require_once("../config.php");
 	require_once("../function.php");
 
 	$supported_controller = array(
-		'admin'=>array('index','login'),
+		'admin'=>array('index','login','logout'),
 		'home' => array('index','error'),
 		'filmmanager' => array('index','add','delete','edit','upload','update'),
 		'outstanding' => array('index','add','delete','edit','upload','update'),
@@ -32,14 +33,14 @@
 	else
 	{
 		if(isLoggedIn()){
-			
-			$controller = 'admin';
-			$action = 'index';
-		}
-		else{
 			$controller = 'home';
 			$action = 'index';
 		}
+		else{
+			$controller = 'admin';
+			$action = 'index';
+		}
+
 	}
 
 	if(!array_key_exists($controller, $supported_controller) || !in_array($action,$supported_controller[$controller]))

@@ -15,12 +15,12 @@
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		  <!-- Brand -->
-		  	<a class="navbar-brand" href="index.php">V CINEMA</a>
+		  	<a class="navbar-brand" href="?controller=home">V CINEMA</a>
 
 		  <!-- Links -->
 		  	<ul class="navbar-nav ml-auto">
 			    <li class="nav-item">
-			      <a class="nav-link" href="index.php">Trang chủ</a>
+			      <a class="nav-link" href="?controller=home">Trang chủ</a>
 			    </li>
 			    <!-- Dropdown -->
 			    <li class="nav-item dropdown">
@@ -57,7 +57,7 @@
 				    </a>
 				      <div class="dropdown-menu">
 				        <a class="dropdown-item" href="#">Đổi mật khẩu</a>
-				        <a class="dropdown-item" href="#">Đăng xuất</a>		     
+				        <a class="dropdown-item" href="?controller=admin&action=logout">Đăng xuất</a>		     
 				      </div>
 			    </li>
 		  	</ul>
