@@ -4,10 +4,11 @@
 			foreach ($showtime as $s) {
 				$id = $s->id;
 				$idFilm = $s->idFilm;
+				$idTicket = $s->idTicket;
 				$dateF = $s->dateF;
 				$timeF = $s->timeF;
 				$movieTheater = $s->movieTheater;
-				$room = $s->room;
+				
 			}
 		?>
   		<h2>SỬA XUẤT CHIẾU PHIM</h2>
@@ -22,6 +23,10 @@
 		      		<input value="<?= $idFilm ?>" type="text" class="form-control" name="idfilm">
 		    	</div>
 		    	<div class="form-group">
+		    		<label for="text">Mã loại vé</label>
+      				<input value="<?= $idTicket ?>" type="text" class="form-control" name="idticket">
+    			</div>
+		    	<div class="form-group">
 		      		<label for="text">Ngày chiếu</label>
 		      		<input value="<?= $dateF ?>" type="date" class="form-control" name="datef">
 		    	</div>
@@ -32,10 +37,6 @@
 		    	<div class="form-group">
 		    		<label for="text">Mã rạp chiếu</label>
       				<input value="<?= $movieTheater ?>" type="text" class="form-control" name="movietheater">
-    			</div>
-    			<div class="form-group">
-		    		<label for="text">Phòng chiếu</label>
-      				<input value="<?= $room ?>" type="text" class="form-control" name="room">
     			</div>
 	    		<button type="submit" class="btn btn-primary">Thêm</button>
 	    		<button type="submit" class="btn btn-danger">Mặc định</button>

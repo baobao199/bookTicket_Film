@@ -45,7 +45,7 @@
         		</tr>
                 <tr>
                     <th></th>
-                    <td><a href="#" class="btn btn-danger">Lịch chiếu phim</a></td>
+                    <td><a href="?controller=showtime" class="btn btn-danger">Lịch chiếu phim</a></td>
                 </tr>
                 
 

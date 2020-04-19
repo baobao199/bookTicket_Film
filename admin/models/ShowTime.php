@@ -3,33 +3,30 @@
 	class ShowTime{
 		public $id;
 		public $idFilm;
+		public $idTicket;
 		public $dateF;
 		public $timeF;
 		public $movieTheater;
-		public $room;
 
 
 		/**
 		 * Class Constructor
 		 * @param    $id   
 		 * @param    $idFilm   
+		 * @param    $idTicket   
 		 * @param    $dateF   
 		 * @param    $timeF   
 		 * @param    $movieTheater   
-		 * @param    $room   
 		 */
-		public function __construct($id, $idFilm, $dateF, $timeF, $movieTheater, $room)
+		public function __construct($id, $idFilm, $idTicket, $dateF, $timeF, $movieTheater)
 		{
 			$this->id = $id;
 			$this->idFilm = $idFilm;
+			$this->idTicket = $idTicket;
 			$this->dateF = $dateF;
 			$this->timeF = $timeF;
 			$this->movieTheater = $movieTheater;
-			$this->room = $room;
 		}
-
-
-
 
 		public function getAll(){
 			$sql = "select * from xuatchieuphim";
@@ -37,7 +34,7 @@
 			$stm = $db->query($sql);
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) {
-				$list[] = new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['ngayChieu'], $item['gioChieu'], $item['rapChieu'],$item['phongChieu']);
+				$list[] = new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['maLoaiVe'] ,$item['ngayChieu'], $item['gioChieu'], $item['maRapChieu']);
 			}
 			return $list;
 		}
@@ -51,22 +48,22 @@
 			return $stm->rowCount() == 1;
 		}
 
-		public function addShowTime($id, $idFilm, $dateF, $timeF, $movieTheater, $room){
-			$sql = "INSERT INTO xuatchieuphim VALUES ( :id, :idFilm, :dateF, :timeF, :movieTheater, :room)";
+		public function addShowTime($id, $idFilm, $idTicket,$dateF, $timeF, $movieTheater){
+			$sql = "INSERT INTO xuatchieuphim VALUES (:id, :idFilm, :idTicket, :dateF, :timeF, :movieTheater)";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
-			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':dateF'=>$dateF, ':timeF'=>$timeF,':movieTheater'=>$movieTheater, ':room'=>$room));
+			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':idTicket'=>$idTicket,':dateF'=>$dateF, ':timeF'=>$timeF,':movieTheater'=>$movieTheater));
 
 			return $stm->rowCount() == 1;
 		}
 
-		public function updateShowTime($id, $idFilm, $dateF, $timeF, $movieTheater, $room){
-			$sql = "UPDATE xuatchieuphim SET maPhim = :idFilm, ngayChieu = :dateF, gioChieu = :timeF, rapChieu = :movieTheater, phongChieu = :room  where maXuatChieu = :id ";
+		public function updateShowTime($id, $idFilm, $idTicket, $dateF, $timeF, $movieTheater){
+			$sql = "UPDATE xuatchieuphim SET maPhim = :idFilm, maLoaiVe = :idTicket, ngayChieu = :dateF, gioChieu = :timeF, maRapChieu = :movieTheater  where maXuatChieu = :id ";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
-			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':dateF'=>$dateF, ':timeF'=>$timeF,':movieTheater'=>$movieTheater, ':room'=>$room));
+			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':idTicket'=>$idTicket,':dateF'=>$dateF, ':timeF'=>$timeF,':movieTheater'=>$movieTheater));
 
 			return $stm->rowCount() == 1;
 		}
@@ -79,7 +76,7 @@
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['ngayChieu'], $item['gioChieu'], $item['rapChieu'],$item['phongChieu']);		
+				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['maLoaiVe'] ,$item['ngayChieu'], $item['gioChieu'], $item['maRapChieu']);		
 			}
 			return $list;
 		}

@@ -12,6 +12,10 @@
 		      		<input type="text" class="form-control" name="idfilm">
 		    	</div>
 		    	<div class="form-group">
+		    		<label for="text">Mã loại vé</label>
+      				<input type="text" class="form-control" name="idticket">
+    			</div>
+		    	<div class="form-group">
 		      		<label for="text">Ngày chiếu</label>
 		      		<input type="date" class="form-control" name="datef">
 		    	</div>
@@ -22,10 +26,6 @@
 		    	<div class="form-group">
 		    		<label for="text">Mã rạp chiếu</label>
       				<input type="text" class="form-control" name="movietheater">
-    			</div>
-    			<div class="form-group">
-		    		<label for="text">Phòng chiếu</label>
-      				<input type="text" class="form-control" name="room">
     			</div>
 	    		<button type="submit" class="btn btn-primary">Thêm</button>
 	    		<button type="submit" class="btn btn-danger">Mặc định</button>

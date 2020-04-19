@@ -20,12 +20,13 @@
 		function upload(){
 			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
 			$idFilm = filter_input(INPUT_POST,'idfilm',FILTER_SANITIZE_STRING);
+			$idTicket = filter_input(INPUT_POST,'idticket',FILTER_SANITIZE_STRING);
 			$dateF = filter_input(INPUT_POST,'datef',FILTER_SANITIZE_STRING);
 			$timeF = filter_input(INPUT_POST,'timef',FILTER_SANITIZE_STRING);
 			$movieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
-			$room = filter_input(INPUT_POST,'room',FILTER_SANITIZE_STRING);
+			
 
-			$showTime = ShowTime::addShowTime($id, $idFilm, $dateF, $timeF, $movieTheater, $room);
+			$showTime = ShowTime::addShowTime($id, $idFilm, $idTicket, $dateF, $timeF, $movieTheater);
 
 			header("LOCATION: index.php?controller=showtime");
 
@@ -45,12 +46,12 @@
 		function update(){
 			$id = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
 			$idFilm = filter_input(INPUT_POST,'idfilm',FILTER_SANITIZE_STRING);
+			$idTicket = filter_input(INPUT_POST,'idticket',FILTER_SANITIZE_STRING);
 			$dateF = filter_input(INPUT_POST,'datef',FILTER_SANITIZE_STRING);
 			$timeF = filter_input(INPUT_POST,'timef',FILTER_SANITIZE_STRING);
 			$movieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
-			$room = filter_input(INPUT_POST,'room',FILTER_SANITIZE_STRING);
 
-			$showTime = ShowTime::updateShowTime($id, $idFilm, $dateF, $timeF, $movieTheater, $room);
+			$showTime = ShowTime::updateShowTime($id, $idFilm, $idTicket, $dateF, $timeF, $movieTheater);
 
 			header("LOCATION: index.php?controller=showtime");
 		}
