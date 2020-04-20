@@ -84,51 +84,37 @@
 			</button>
 		</div>
 	<hr>
-		<?php 
-			foreach ($showtime as $s =>){
-				
-			} 
+		<?php
+			foreach ($showtime as $s) {
+				?>
+					<div class="row" style = "margin-bottom: 40px;">
+						<div class="col-xl-8 col-lg-3 col-md-4 col-6">
+							<h4 style="text-align: left;"><?= $s['tenPhim'] ?></h4>
+							<h6>2D Phụ Đề Việt</h6>
+
+							<h6>3D Phụ Đề Việt</h6>
+								<div class= "row">
+			                        <div class="cell col-xl-3 col-lg-3 col-md-4 col-6">
+			                            <div class="infor">
+			                                <p>09:30 AM</p>
+			                            </div>
+			                        </div>
+								</div>
+
+								<h6>4Dx3D Phụ Đề Việt | Rạp 4DX</h6>
+								<div class= "row">
+			                        <div class="cell col-xl-3 col-lg-3 col-md-4 col-6">
+			                            <div class="infor">
+			                                <p>09:30 AM</p>
+			                            </div>
+			                        </div>
+								</div>
+			            </div>
+				    </div>
+				    <hr style="height: 1px">
+				<?php
+			}
 		?>
-			
-		<?php endforeach ?>
-        <div class="row" style = "margin-bottom: 40px;">
-			<div class="col-xl-8 col-lg-3 col-md-4 col-6">
-				<h4 style="text-align: left;">Nữ Hoàng Băng Giá 2</h4>
-				<h6>2D Phụ Đề Việt</h6>
-				<div class="row" style= "width = 100%;">
-                    <div class="cell col-xl-3 col-lg-3 col-md-4 col-6">
-                        <div class="infor">
-                            <p>09:05 AM</p>
-                        </div>
-                    </div>
-
-        			<div class="cell col-xl-3 col-lg-3 col-md-4 col-6">
-                        <div class="infor">
-                            <p>09:05 AM</p>
-                        </div>
-                    </div>
-                </div>
-
-				<h6>3D Phụ Đề Việt</h6>
-					<div class= "row">
-                        <div class="cell col-xl-3 col-lg-3 col-md-4 col-6">
-                            <div class="infor">
-                                <p>09:30 AM</p>
-                            </div>
-                        </div>
-					</div>
-
-					<h6>4Dx3D Phụ Đề Việt | Rạp 4DX</h6>
-					<div class= "row">
-                        <div class="cell col-xl-3 col-lg-3 col-md-4 col-6">
-                            <div class="infor">
-                                <p>09:30 AM</p>
-                            </div>
-                        </div>
-					</div>
-            </div>
-	    </div>
-	    <hr style="height: 1px">
     </div>
 </div>
 

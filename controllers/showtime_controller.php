@@ -12,7 +12,7 @@
 		}
 		function index()
 		{
-			$showTime = ShowTime::getAll();
+			$showTime = ShowTime::getFilm('CGVVC');
 			$this->render('index', array('showtime'=>$showTime));
 		}
 	}
