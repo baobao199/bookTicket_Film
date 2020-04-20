@@ -12,7 +12,8 @@
 		}
 		function index()
 		{
-			$this->render('index', array());
+			$showTime = ShowTime::getAll();
+			$this->render('index', array('showtime'=>$showTime));
 		}
 	}
 ?>

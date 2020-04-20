@@ -84,16 +84,16 @@
 			</button>
 		</div>
 	<hr>
+		<?php 
+			foreach ($showtime as $s =>){
+				
+			} 
+		?>
+			
+		<?php endforeach ?>
         <div class="row" style = "margin-bottom: 40px;">
-			<div class="col-xl-3 col-lg-3 col-md-4 col-6">
-                <div class="infor" style="padding-left:20px">
-					<h5>FROZENT II</h5>
-                    <img src="img/fz2/Frozen2.jpg" />
-                </div>
-
-			</div>
-
 			<div class="col-xl-8 col-lg-3 col-md-4 col-6">
+				<h4 style="text-align: left;">Nữ Hoàng Băng Giá 2</h4>
 				<h6>2D Phụ Đề Việt</h6>
 				<div class="row" style= "width = 100%;">
                     <div class="cell col-xl-3 col-lg-3 col-md-4 col-6">
@@ -128,6 +128,7 @@
 					</div>
             </div>
 	    </div>
+	    <hr style="height: 1px">
     </div>
 </div>
 

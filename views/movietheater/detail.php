@@ -18,10 +18,11 @@
     <div class="row" style="width: 100%;">
         <?php 
             foreach ($movietheater as $m) {
-               $tenRap = $m->name;
-               $diaChi = $m->address;
-               $SDT = $m->phoneNumber;
-               $hinhAnh= $m->image;
+                $maRap = $m->id;
+                $tenRap = $m->name;
+                $diaChi = $m->address;
+                $SDT = $m->phoneNumber;
+                $hinhAnh= $m->image;
             }
         ?>
         <div class="col-xl-8 col-lg-3 col-md-4 col-6"><img src="<?= 'admin/'.$hinhAnh ?>" height="350" width="700"></div>
@@ -45,7 +46,7 @@
         		</tr>
                 <tr>
                     <th></th>
-                    <td><a href="?controller=showtime" class="btn btn-danger">Lịch chiếu phim</a></td>
+                    <td><a href="?controller=showtime&id=<?= $m->id ?>" class="btn btn-danger">Lịch chiếu phim</a></td>
                 </tr>
                 
 

@@ -10,10 +10,13 @@
 		        <tr>
 		        	<th>Mã xuất chiếu</th>
 		        	<th>Mã phim</th>
-		        	<th>Mã loại vé</th>
+		        	<th>Tên phim</th>
+		        	<th>Rạp chiếu</th>
+		        	<th>Phòng chiếu</th>
+		        	<th>Loại vé</th>
 		        	<th>Ngày chiếu</th>
 		        	<th>Giờ chiếu</th>
-		        	<th>Rạp chiếu</th>
+		        	<th>Ghế trống</th>
 		        	<th>Công cụ</th>
 		        </tr>
 		      </thead>
@@ -22,12 +25,15 @@
 		      		foreach ($showtime as $s) {
 		      			?>
 		      			<tr>
-				        	<td><?= $s->id ?></td>
+		      				<td><?= $s->id ?></td>
 				        	<td><?= $s->idFilm ?></td>
-				        	<td><?= $s->idTicket ?></td>
+				        	<td><?= $s->nameFilm ?></td>
+				        	<td><?= $s->idMovieTheater ?></td>
+				        	<td><?= $s->room ?></td>
+				        	<td><?= $s->ticket ?></td>
 				        	<td><?= $s->dateF ?></td>
 				        	<td><?= $s->timeF ?></td>
-				        	<td><?= $s->movieTheater ?></td>
+				        	<td><?= $s->seat ?></td>
 				        	<td style="width: 150px">
 								<a class="btn btn-info" href="?controller=showtime&action=edit&id=<?= $s->id ?>">
 									<i class="material-icons">&#xe254;</i>
