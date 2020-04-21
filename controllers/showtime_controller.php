@@ -12,7 +12,7 @@
 		}
 		function index()
 		{
-			$showTime = ShowTime::getFilm('CGVVC');
+			$showTime = ShowTime::getFilm('CGVVC','2020-04-25');
 			$this->render('index', array('showtime'=>$showTime));
 		}
 	}

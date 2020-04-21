@@ -37,11 +37,11 @@
 			$this->seat = $seat;
 		}
 
-		public function getFilm($idMovieTheater){
-			$sql = "SELECT DISTINCT tenPhim FROM xuatchieuphim where maRapPhim = :idMovieTheater";
+		public function getFilm($idMovieTheater, $dateF){
+			$sql = "SELECT DISTINCT maphim, tenPhim FROM xuatchieuphim where maRapPhim = :idMovieTheater and ngayChieu = :dateF";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
-			$stm->execute(array('idMovieTheater'=> $idMovieTheater));
+			$stm->execute(array('idMovieTheater'=> $idMovieTheater, ':dateF'=>$dateF));
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
 				$list[] = $item;		
@@ -50,28 +50,20 @@
 
 		}
 		
-		public function getAll(){
-			$sql = "select * from xuatchieuphim";
+		public function getShowTimeFilm($idFilm, $idMovieTheater, $ticket,  $dateF){
+			$sql = "select gioChieu from xuatchieuphim where maPhim = :idFilm and maRapPhim = :idMovieTheater and loaiVe = :ticket  and ngayChieu = :dateF";
 			$db = DB::getDB();
-			$stm = $db->query($sql);
-			$list = array();
-			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) {
-				$list[] = new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['ngayChieu'], $item['gioChieu'], $item['loaiVe'], $item['maRapPhim'],$item['gheTrong']);
-			}
-			return $list;
-		}
-
-		public function getMovieById($id){
-			$sql = "select * from rapphim where maRapPhim = :id";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
-			$stm->execute(array('id'=> $id));
-			$list = array();
-			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
-			{
-				$list[]	= new MovieTheater($item['maRapPhim'],$item['tenRapPhim'],$item['diaChi'], $item['soDienThoai'], $item['hinhAnh']);		
+			$stm->execute(array(':idFilm'=>$idFilm,':idMovieTheater'=> $idMovieTheater, ':ticket'=>$ticket, ':dateF'=>$dateF));
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) {
+				$list[] = $item;
+			}
+			if(empty($list)){
+				return null;
 			}
 			return $list;
+			
 		}
 	}
 ?>

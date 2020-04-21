@@ -11,6 +11,7 @@
 	// foreach ($list as $key) {
 	// 	$a = $key->password;
 	// }
-	$list = ShowTime::getFilm('CGVVC');
+	//$list = ShowTime::getShowTimeFilm('FZ2', 'CGVVC', 'TK2D');
+	$list = ShowTime::getFilm('CGVVC','2020-04-25');
 	print_r($list);
 ?>

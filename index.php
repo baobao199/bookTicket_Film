@@ -9,7 +9,7 @@
 		'outstanding' => array('detail'),
 		'moviecomingsoon' => array('index','detail'),
 		'movietheater' => array('index','detail'),
-		'showtime' => array('index'),
+		'showtime' => array('index','detail'),
 		'promotion' => array('index','detail'),
 		'account' => array('index','profile','login','logout','edit', 'update','register', 'upload', 'password', 'updatepass'),
 	);
