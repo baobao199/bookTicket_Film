@@ -37,7 +37,7 @@
 						<datalist id="ticket">
 							<option value="TK2D">
 						    <option value="TK3D">
-						    <option value="TK4DX">
+						    <option value="TK4D">
 						</datalist>
     			</div>
 		    	<div class="form-group">

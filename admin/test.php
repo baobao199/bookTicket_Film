@@ -3,8 +3,9 @@
 	require_once('models/Slide.php');
 	require_once('models/OutStanding.php');
 	require_once('models/Account.php');
+	require_once('models/ShowTime.php');
 	require_once('../function.php');
 
-	$list = Account::getAll();
+	$list = ShowTime::getShowTimeById('MXC3');
 	print_r($list);
 ?>

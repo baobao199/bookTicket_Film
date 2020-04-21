@@ -67,12 +67,12 @@
 			return $stm->rowCount() == 1;
 		}
 
-		public function updateShowTime($id, $idFilm, $idTicket, $dateF, $timeF, $movieTheater){
-			$sql = "UPDATE xuatchieuphim SET maPhim = :idFilm, maLoaiVe = :idTicket, ngayChieu = :dateF, gioChieu = :timeF, maRapChieu = :movieTheater  where maXuatChieu = :id ";
+		public function updateShowTime($id, $idFilm, $nameFilm, $idMovieTheater, $room, $ticket, $dateF, $timeF, $seat){
+			$sql = "UPDATE xuatchieuphim SET maPhim = :idFilm, tenPhim = :nameFilm, maRapPhim = :idMovieTheater, phongChieu = :room, loaiVe = :ticket, ngayChieu = :dateF, gioChieu = :timeF, ghe = :seat where maXuatChieu = :id ";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
-			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':idTicket'=>$idTicket,':dateF'=>$dateF, ':timeF'=>$timeF,':movieTheater'=>$movieTheater));
+			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':nameFilm'=>$nameFilm, ':idMovieTheater'=>$idMovieTheater, ':room'=>$room, ':ticket'=>$ticket, ':dateF'=>$dateF, ':timeF'=>$timeF, ':seat'=>$seat));
 
 			return $stm->rowCount() == 1;
 		}
@@ -85,7 +85,7 @@
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['maLoaiVe'] ,$item['ngayChieu'], $item['gioChieu'], $item['maRapChieu']);		
+				$list[] = new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe']);	
 			}
 			return $list;
 		}
