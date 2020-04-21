@@ -46,7 +46,12 @@
         		</tr>
                 <tr>
                     <th></th>
-                    <td><a href="?controller=showtime&id=<?= $m->id ?>" class="btn btn-danger">Lịch chiếu phim</a></td>
+                    <td>
+                        <form action="?controller=showtime" method="post">
+                            <input type="hidden" name="id" value="<?= $m->id ?>"/>
+                            <button type="submit" class="btn btn-info">Lịch chiếu phim</button>
+                        </form>
+                    </td>
                 </tr>
                 
 
