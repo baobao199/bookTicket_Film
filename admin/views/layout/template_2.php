@@ -49,7 +49,7 @@
 			      <a class="nav-link" href="?controller=customer">Quản trị khách hàng</a>
 			    </li>
 			    <li class="nav-item">
-			      <a class="nav-link" href="#">Quản trị đặt vé</a>
+			      <a class="nav-link" href="index.php?controller=bookticket">Quản trị đặt vé</a>
 			    </li>
 			    <li class="nav-item dropdown">
 				    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
