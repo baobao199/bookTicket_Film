@@ -1,5 +1,5 @@
 <?php
-	class OrderTicket{
+	class BookTicket{
 		public $id;
 		public $dateT;
 		public $total;
@@ -20,6 +20,6 @@
 			$this->total = $total;
 			$this->status = $status;
 		}
-		
+
 	}
 ?>
