@@ -72,7 +72,7 @@
 				</div>
 
 				<div class="detail-info-row">
-					<form>
+					<form action="?controller=bookticket">
 						<input type="hidden" name="id" value=""/>
 						<button type="button" class="btn btn-danger">Đặt vé</button>
 					</form>

@@ -13,7 +13,7 @@
                             <div class="infor">
                                 <img src="<?= "admin/".$p->image ?>" />
                                 <p style="font-weight: bold;height: 65px; text-align: center;"><?= $p->name ?></p>
-                                <form action="?controller=promotion&action=detail" method="post" style="display: inline;">
+                                <form action="?controller=promotion&action=detail" method="post" style="display: inline">
                                     <input type="hidden" name="id" value="<?= $p->id ?>"/>
                                      <button style="margin-left: 65px" type="submit" class="btn btn-info">Xem chi tiết</button>
                                 </form>

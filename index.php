@@ -12,6 +12,7 @@
 		'showtime' => array('index','detail'),
 		'promotion' => array('index','detail'),
 		'account' => array('index','profile','login','logout','edit', 'update','register', 'upload', 'password', 'updatepass'),
+		'bookticket' => array('index','detail'),
 	);
 
 	if(isset($_GET['controller']))
