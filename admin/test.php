@@ -4,8 +4,10 @@
 	require_once('models/OutStanding.php');
 	require_once('models/Account.php');
 	require_once('models/ShowTime.php');
+	require_once('models/Food.php');
 	require_once('../function.php');
 
-	$list = ShowTime::getShowTimeById('MXC3');
+
+	$list = Food::getAll();
 	print_r($list);
 ?>
