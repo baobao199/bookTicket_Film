@@ -36,32 +36,18 @@
           </select>
       </div>
   	<h6>Chọn Rạp Chiếu Phim</h6>
-  			<div class="custom-select" style="width: 600px;">
-  					<select>
-  						<option value="0">Chọn Rạp</option>
-  						<option value="1">CGV Hùng Vương Plaza</option>
-  						<option value="2">CGV Vincom Thủ Đức</option>
-  						<option value="3">CGV Crescent Mall</option>
-  						<option value="4">CGV Thảo Điền Pearl</option>
-  						<option value="5">CGV Vincom Thủ Đức</option>
-  						<option value="6">CGV Vivo City</option>
-  						<option value="7">CGV Pearl Plaza</option>
-  						<option value="8">CGV Liberty Citypoint</option>
-  						<option value="9">CGV Vincom Đồng Khởi</option>
-  						<option value="10">CGV Trường Sơn (CGV CT Plaza)</option>
-  						<option value="11">CGV Pandora City</option>
-  						<option value="12">CGV Vincom Gò Vấp</option>
-  						<option value="13">CGV Hoàng Văn Thụ</option>
-  						<option value="14">CGV Aeon Bình Tân</option>
-  						<option value="15">CGV Saigonres Nguyễn Xí</option>
-  						<option value="16">CGV Parkson Đồng Khởi</option>
-  						<option value="17">CGV Sư Vạn Hạnh</option>
-  						<option value="18">CGV IMC Trần Quang Khải</option>
-  						<option value="19">CGV Vincom Center Landmark 81</option>
-  						<option value="20">CGV Satra Củ Chi</option>
-  						<option value="21">CGV Lý Chính Thắng</option>
-  					</select>
-  		</div>
+  		<div class="custom-select" style="width: 600px;">
+          <select>
+            <option value="0">Chọn rạp chiếu</option>
+            <?php
+              foreach ($namemovietheater as $m) {
+                ?>
+                  <option value="<?= $m->id ?>"><?= $m->name ?></option>
+                <?php
+              }
+            ?>
+          </select>
+      </div>
   		<h6>Chọn Loại vé</h6>
   		<div class="custom-select" style="width: 600px;">
   				<select>
@@ -75,6 +61,8 @@
             ?>
   				</select>
   		</div>
+      <h6>Ngày chiếu</h6>
+      <input class="custom-select" style="width: 600px" type="date" name="">
   		<h6>Chọn Giờ chiếu</h6>
   		<div class="custom-select" style="width: 600px;">
   				<select>

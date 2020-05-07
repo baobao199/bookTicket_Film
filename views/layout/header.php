@@ -18,6 +18,22 @@
 					<a class="dropdown-item" href="index.php?controller=moviecomingsoon">Phim sắp chiếu</a>
 				</div>
 			</li>
+            <li class="nav-item">
+                <?php 
+                    if(isLoggedIn()){
+                        ?>
+                            <a class="nav-link" href="index.php?controller=bookticket">Đặt vé</a>
+                        <?php
+                    }
+                    else{
+                        ?>
+                            <a class="nav-link" href="index.php?controller=account">Đặt vé</a>
+                        <?php
+                    }
+                ?>
+                
+                    
+            </li>
 			<li class="nav-item">
                 <a class="nav-link" href="index.php?controller=promotion">Khuyến mãi</a>
             </li>
