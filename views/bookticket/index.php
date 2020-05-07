@@ -89,8 +89,9 @@
         obj[currentFilmList[i]['nameFilm']] = currentFilmList[i];
 
     currentFilmList = new Array();
-    for ( var key in obj )
+    for ( var key in obj ){
         currentFilmList.push(obj[key]);
+    }
     console.log("current", currentFilmList);
 
     var select = document.getElementById("flim_select");
@@ -132,12 +133,14 @@
       }
   }
 
+  var currentDate;
   function onDateSelect(){
      var e = document.getElementById("date_select");
 
       console.log(currentIdMovieTheater);
 
       var dateFilm = e.options[e.selectedIndex].value;
+      currentDate = dateFilm;
 
       console.log(dateFilm);
       console.log(currentFilm);
@@ -158,6 +161,35 @@
         select.appendChild(opt);
       }
   }
+
+  function onTimeSelect(){
+     var e = document.getElementById("time_select");
+
+     var timeFilm = e.options[e.selectedIndex].value;
+
+     console.log(timeFilm);
+     console.log(currentIdMovieTheater);
+     console.log(currentFilm);
+     console.log(currentDate);
+
+     let currentFilmList = [...movieList].filter( film => film['idFilm'] === currentFilm );
+      let currentMovieTheaterList = [...currentFilmList].filter( film => film['idMovieTheater'] === currentIdMovieTheater);
+      let currentTimeList = [...currentMovieTheaterList].filter( film => film['dateF'] === currentDate);
+      let currentTicketList = [...currentMovieTheaterList].filter( film => film['timeF'] === timeFilm);
+
+      var select = document.getElementById("ticket_select");
+      select.innerHTML = "";
+      var opt = document.createElement('option');
+      opt.innerHTML = "Loại vé";
+      select.appendChild(opt);
+      for (var i = 0; i < currentTimeList.length; i++) {
+        var opt = document.createElement('option');
+        opt.value = currentTimeList[i]['ticket'] ;
+        opt.innerHTML = currentTimeList[i]['ticket'];
+        select.appendChild(opt);
+      }
+
+ }
 
 </script>
 
@@ -193,7 +225,7 @@
 
     <h6>Chọn Giờ chiếu</h6>
     <div class="form-group">
-      <select class="form-control" id="time_select">
+      <select class="form-control" id="time_select" onchange="onTimeSelect()">
           <option value="0">Chọn giờ</option>
       </select>
     </div>
