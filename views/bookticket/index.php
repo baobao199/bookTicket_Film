@@ -75,11 +75,13 @@
 <script type="text/javascript">
   let movieList = <?= $showtime ?>;
   console.log(movieList);
-  var currentIdFilm;
+
+  var currentIdMovieTheater;
+
   function onMovieTheaterSelect(id){
     var id = id.value;  
     console.log(id);
-    currentIdFilm =id;
+    currentIdMovieTheater = id;
     let currentFilmList = [...movieList].filter( film => film['idMovieTheater'] === id);
     var obj = {};
 
@@ -103,15 +105,19 @@
       select.appendChild(opt);
     }
   }
+
+  var currentFilm;
   function onFilmSelect(){
       var e = document.getElementById("flim_select");
-      console.log(currentIdFilm);
+      console.log(currentIdMovieTheater);
 
       var strUser = e.options[e.selectedIndex].value;
       console.log(strUser);
 
+      currentFilm = strUser;
+
       let currentDateList = [...movieList].filter( film => film['idFilm'] === strUser );
-      let currentFilmList = [...currentDateList].filter( film => film['idMovieTheater'] === currentIdFilm);
+      let currentFilmList = [...currentDateList].filter( film => film['idMovieTheater'] === currentIdMovieTheater);
 
       var select = document.getElementById("date_select");
       select.innerHTML = "";
@@ -120,11 +126,39 @@
       select.appendChild(opt);
       for (var i = 0; i < currentFilmList.length; i++) {
         var opt = document.createElement('option');
-        opt.value = currentDateList[i]['idFilm'] ;
+        opt.value = currentDateList[i]['dateF'] ;
         opt.innerHTML = currentDateList[i]['dateF'];
         select.appendChild(opt);
       }
   }
+
+  function onDateSelect(){
+     var e = document.getElementById("date_select");
+
+      console.log(currentIdMovieTheater);
+
+      var dateFilm = e.options[e.selectedIndex].value;
+
+      console.log(dateFilm);
+      console.log(currentFilm);
+
+      let currentFilmList = [...movieList].filter( film => film['idFilm'] === currentFilm );
+      let currentMovieTheaterList = [...currentFilmList].filter( film => film['idMovieTheater'] === currentIdMovieTheater);
+      let currentTimeList = [...currentMovieTheaterList].filter( film => film['dateF'] === dateFilm);
+
+      var select = document.getElementById("time_select");
+      select.innerHTML = "";
+      var opt = document.createElement('option');
+      opt.innerHTML = "Giờ chiếu";
+      select.appendChild(opt);
+      for (var i = 0; i < currentTimeList.length; i++) {
+        var opt = document.createElement('option');
+        opt.value = currentTimeList[i]['timeF'] ;
+        opt.innerHTML = currentTimeList[i]['timeF'];
+        select.appendChild(opt);
+      }
+  }
+
 </script>
 
 <div class="container">
@@ -152,7 +186,7 @@
 
     <h6>Chọn ngày chiếu</h6>
     <div class="form-group">
-      <select class="form-control" id="date_select">
+      <select class="form-control" id="date_select" onchange="onDateSelect()">
           <option value="0">Chọn ngày</option>
       </select>
     </div>
