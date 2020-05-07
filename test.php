@@ -13,6 +13,6 @@
 	// 	$a = $key->password;
 	// }
 	//$list = ShowTime::getShowTimeFilm('FZ2', 'CGVVC', 'TK2D');
-	$list = TicketManager::getNameTicket();
+	$list = ShowTime::getAll();
 	print_r($list);
 ?>

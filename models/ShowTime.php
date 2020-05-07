@@ -37,6 +37,18 @@
 			$this->seat = $seat;
 		}
 
+		public function getAll(){
+			$sql = "select * from xuatchieuphim";
+			$db = DB::getDB();
+			$stm = $db->query($sql);
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe']);		
+			}
+			return json_encode($list);
+		}
+
 		public function getFilm($idMovieTheater, $dateF){
 			$sql = "SELECT DISTINCT maphim, tenPhim FROM xuatchieuphim where maRapPhim = :idMovieTheater and ngayChieu = :dateF";
 			$db = DB::getDB();

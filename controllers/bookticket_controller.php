@@ -4,6 +4,7 @@
 	require_once("models/FilmManager.php");
 	require_once("models/MovieTheater.php");
 	require_once("models/Food.php");
+	require_once("models/ShowTime.php");
 	require_once("function.php");
 	class BookticketController extends BaseController{
 		function __construct()
@@ -19,7 +20,8 @@
 			$nameFilm = FilmManager::getAll();
 			$nameFood = Food::getAll();
 			$nameMovieTheater = MovieTheater::getAll();
-			$this->render('index', array('nameticket'=>$nameTicket, 'namefilm'=>$nameFilm, 'namefood'=>$nameFood, 'namemovietheater'=>$nameMovieTheater));
+			$showTime = ShowTime::getAll();
+			$this->render('index', array('nameticket'=>$nameTicket, 'namefilm'=>$nameFilm, 'namefood'=>$nameFood, 'namemovietheater'=>$nameMovieTheater, 'showtime'=>$showTime));
 		}
 	}
 ?>
