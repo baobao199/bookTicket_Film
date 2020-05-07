@@ -52,7 +52,7 @@
 		        	<?php
 			        	$start_date = date("Y-m-d");
 		 				$end_date = date('Y-m-d', strtotime($start_date. ' + 9 days'));
-		 				$weekdays = [0,1,2,3,4,5,6]; // 0 = sunday, 1 = monday ...
+		 				$weekdays = [0,1,2,3,4,5,6,7]; // 0 = sunday, 1 = monday ...
 						$range_date = array();
 						for ($i = strtotime($start_date); $i <= strtotime($end_date); $i = strtotime('+1 day', $i)) 
 						{
