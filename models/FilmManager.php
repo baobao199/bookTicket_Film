@@ -81,7 +81,23 @@
 		}
 
 		public function getFilmById($id){
-			$sql = "SELECT * from phim UNION SELECT * from phimnoibat where maPhim = :id";
+			$sql = "SELECT * from phim where maPhim = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array('id'=> $id));
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= new FilmManager($item['maPhim'], $item['tenPhim'], $item['daoDien'], $item['dienVien'], $item['theLoai'], $item['khoiChieu'], $item['thoiLuong'], $item['ngonNgu'], $item['moTa'], $item['hinhAnh']);		
+			}
+			if(empty($list)){
+				$list = FilmManager::getFilmOutStandingById($id);
+			}
+			return $list;
+		}
+
+		public function getFilmOutStandingById($id){
+			$sql = "SELECT * from phimnoibat where maPhim = :id";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array('id'=> $id));

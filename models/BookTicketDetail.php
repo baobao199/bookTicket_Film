@@ -2,8 +2,8 @@
 	require_once("config.php");
 	class BookTicketDetail{
 		public $id;
-		public $movietheater;
 		public $nameGuess;
+		public $movietheater;
 		public $nameFilm;
 		public $dateF;
 		public $timeF;
@@ -32,11 +32,11 @@
 		 * @param    $priceFood   
 		 * @param    $total   
 		 */
-		public function __construct($id, $movietheater, $nameGuess, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total)
+		public function __construct($id, $nameGuess, $movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total)
 		{
 			$this->id = $id;
-			$this->movietheater = $movietheater;
 			$this->nameGuess = $nameGuess;
+			$this->movietheater = $movietheater;
 			$this->nameFilm = $nameFilm;
 			$this->dateF = $dateF;
 			$this->timeF = $timeF;
@@ -49,13 +49,26 @@
 			$this->total = $total;
 		}
 
-		public function addBookTicket($id, $movietheater, $nameGuess, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total){
+		public function getBookTicketById($id){
+			$sql = "SELECT * from chitietdatve where maDatVe = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array('id'=> $id));
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= new BookTicketDetail($item['maDatVe'], $item['khachHang'], $item['rapPhim'], $item['tenPhim'], $item['ngayChieu'], $item['gioChieu'], $item['loaiVe'], $item['soLuongVe'], $item['giaVe'], $item['doAn'], $item['soLuong'], $item['giaDoAn'], $item['tongTien']);		
+			}
+			return $list;
+		}
 
-			$sql = "INSERT INTO chitietdatve VALUES ( :id, :movietheater, :nameGuess, :nameFilm,:dateF, :timeF, :ticket, :quantityTicket, :priceTicket, :food, :quantityFood, :priceFood, :total)";
+		public function addBookTicket($id, $nameGuess, $movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total){
+
+			$sql = "INSERT INTO chitietdatve VALUES ( :id, :nameGuess, :movietheater, :nameFilm,:dateF, :timeF, :ticket, :quantityTicket, :priceTicket, :food, :quantityFood, :priceFood, :total)";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
-			$stm->execute(array(':id'=>$id, ':movietheater'=>$movietheater, ':nameGuess'=>$nameGuess, ':nameFilm'=>$nameFilm, ':dateF'=>$dateF, ':timeF'=>$timeF, ':ticket'=>$ticket, ':quantityTicket'=>$quantityTicket, ':priceTicket'=>$priceTicket, ':food'=>$food, ':quantityFood'=>$quantityFood, ':priceFood'=>$priceFood, ':total'=>$total));
+			$stm->execute(array(':id'=>$id,':nameGuess'=>$nameGuess, ':movietheater'=>$movietheater, ':nameFilm'=>$nameFilm, ':dateF'=>$dateF, ':timeF'=>$timeF, ':ticket'=>$ticket, ':quantityTicket'=>$quantityTicket, ':priceTicket'=>$priceTicket, ':food'=>$food, ':quantityFood'=>$quantityFood, ':priceFood'=>$priceFood, ':total'=>$total));
 
 			return $stm->rowCount() == 1;
 		}

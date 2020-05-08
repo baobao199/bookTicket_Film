@@ -24,8 +24,8 @@
 		}
 
 		function bookticket(){
-			$movieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
-			$nameFilm = filter_input(INPUT_POST,'namefilm',FILTER_SANITIZE_STRING);
+			$idmovieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
+			$idFilm = filter_input(INPUT_POST,'namefilm',FILTER_SANITIZE_STRING);
 			$dateF = filter_input(INPUT_POST,'datef',FILTER_SANITIZE_STRING);
 			$timeF = filter_input(INPUT_POST,'timef',FILTER_SANITIZE_STRING);
 			$idTicket = filter_input(INPUT_POST,'idticket',FILTER_SANITIZE_STRING);
@@ -35,29 +35,43 @@
 
 			$ticket = TicketManager::getTicketById($idTicket); //lấy mã vé 
 			$food = Food::getFoodById($idFood); //lấy mã thức ăn
+			$film = FilmManager::getFilmById($idFilm);
+			print_r($film);
+			$movieTheater = MovieTheater::getMovieTheaterById($idmovieTheater);
 
 			foreach ($ticket as $t) {
 				$priceTicket = $t->price; //lấy giá vé
 			}
 			$aumountTicket = TicketManager::sumPrice($priceTicket, $quantityTicket);// thành tiền giá vé
-			print_r($aumountTicket);
+
 
 			foreach ($food as $f) {
 				$nameFood = $f->nameFood;
 				$priceFood = $f->price; //lấy giá đồ ăn
 			}
 			$amountFood = TicketManager::sumPrice($priceFood, $quantityFood);//thành tiền đồ ăn
-			print_r($amountFood);
+
+			foreach ($film as $n) {
+				$nameFilm = $n->name;
+			}
+
+			foreach ($movieTheater as $m) {
+				$nameMovieTheater = $m->name;
+			}
 
 			$total_price = $aumountTicket + $amountFood; //tính tổng tiền
-			print_r($total_price);
 
-			BookTicketDetail::addBookTicket('HD1','User 1', $movieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
-			redirect("?controller=bookticket&action=detail");
+
+			BookTicketDetail::addBookTicket('HD1','User 1', $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
+
+			$this->render('bookticket',array());
+
+			//redirect("?controller=bookticket&action=detail");
 		}
 
 		function detail(){
-			$this->render('detail',array('detail'=>$detailTicket));
+			$orderDetail = BookTicketDetail::getBookTicketById('HD1');
+			$this->render('detail',array('orderdetail'=>$orderDetail));
 		}
 	}
 ?>
