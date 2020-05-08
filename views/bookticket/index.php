@@ -194,10 +194,10 @@
 </script>
 
 <div class="container">
-  <form>
+  <form action="?controller=bookticket&action=bookticket" method="post">
     <h4>Chọn rạp chiếu</h4>
     <div class="form-group">
-      <select class="form-control" onchange="onMovieTheaterSelect(this)">
+      <select class="form-control" onchange="onMovieTheaterSelect(this)" name="movietheater">
         <option value="">Chọn rạp</option>
         <?php
         foreach ($namemovietheater as $mt) {
@@ -211,40 +211,40 @@
 
     <h4>Chọn phim</h4>
     <div class="form-group">
-      <select class="form-control" id="flim_select" onchange="onFilmSelect()">
+      <select class="form-control" id="flim_select" onchange="onFilmSelect()" name="namefilm">
         <option>Chọn phim</option>
       </select>
     </div>
 
     <h6>Chọn ngày chiếu</h6>
     <div class="form-group">
-      <select class="form-control" id="date_select" onchange="onDateSelect()">
+      <select class="form-control" id="date_select" onchange="onDateSelect()" name="datef">
           <option value="0">Chọn ngày</option>
       </select>
     </div>
 
     <h6>Chọn Giờ chiếu</h6>
     <div class="form-group">
-      <select class="form-control" id="time_select" onchange="onTimeSelect()">
+      <select class="form-control" id="time_select" onchange="onTimeSelect()" name="timef">
           <option value="0">Chọn giờ</option>
       </select>
     </div>
 
     <h4>Loại vé</h4>
     <div class="form-group">
-      <select class="form-control" id="ticket_select">
+      <select class="form-control" id="ticket_select" name="idticket">
         <option>Chọn vé</option>
       </select>
        <div class="quantity buttons_added">
         <input type="button"value="-" class="minus">
-        <input type="number"id="inputQuantity${x.id}" step="1" min="1" max="" name="quantity" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+        <input type="number"id="inputQuantity${x.id}" step="1" min="1" max="" name="quantityticket" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
         <input type="button"value="+" class="plus">
       </div>
     </div>
 
     <h4>Đồ ăn</h4>
     <div class="form-group">
-      <select class="form-control" id="ticket_select">
+      <select class="form-control" id="ticket_select" name="idfood">
         <option value="0">Chọn đồ ăn</option>
         <?php
           foreach ($namefood as $f) {
@@ -256,7 +256,7 @@
       </select>
       <div class="quantity buttons_added">
         <input type="button"value="-" class="minus">
-        <input type="number"id="inputQuantity${x.id}" step="1" min="1" max="" name="quantity" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+        <input type="number"id="inputQuantity${x.id}" step="1" min="1" max="" name="quantityfood" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
         <input type="button"value="+" class="plus">
       </div>
     </div>
