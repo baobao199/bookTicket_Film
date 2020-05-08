@@ -73,5 +73,17 @@
 			return $stm->rowCount() == 1;
 		}
 
+		public function getIdBookTicket(){
+			$sql = "select maDatVe from chitietdatve";
+			$db = DB::getDB();
+			$stm = $db->query($sql);
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= $item;
+			}
+			return $list;
+		}
+
 	}
 ?>

@@ -39,4 +39,27 @@
 	function isLoggedIn(){
 		return isset($_SESSION['acc']);
 	}
+
+	function idNumber($id){
+		if($id < 10){
+			$tmp = $id + 1;
+			$h = 'VCM'."0000". $tmp;
+		}
+		else if($id < 100){
+			$tmp = $id + 1;
+			$h = 'VCM'."000". $tmp;
+		}
+		else if($id < 1000){
+			$tmp = $id + 1;
+			$h = 'VCM'."00". $tmp;
+		}
+		else if($id < 10000){
+			$tmp = $id + 1;
+			$h = 'VCM'."0". $tmp;
+		}
+		else{
+			$h = $id;
+		}
+		return $h;				
+	}
 ?>

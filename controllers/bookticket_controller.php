@@ -31,56 +31,68 @@
 		}
 
 		function bookticket(){
-			$acc = unserialize($_SESSION['acc']);
 
-			$nameCustomer = $acc->fullName;
+			$idBookTicket = BookTicketDetail::getIdBookTicket();
 
-			$idmovieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
-			$idFilm = filter_input(INPUT_POST,'namefilm',FILTER_SANITIZE_STRING);
-			$dateF = filter_input(INPUT_POST,'datef',FILTER_SANITIZE_STRING);
-			$timeF = filter_input(INPUT_POST,'timef',FILTER_SANITIZE_STRING);
-			$idTicket = filter_input(INPUT_POST,'idticket',FILTER_SANITIZE_STRING);
-			$quantityTicket = filter_input(INPUT_POST,'quantityticket',FILTER_SANITIZE_STRING);
-			$idFood = filter_input(INPUT_POST,'idfood',FILTER_SANITIZE_STRING);
-			$quantityFood = filter_input(INPUT_POST,'quantityfood',FILTER_SANITIZE_STRING);
-
-			$ticket = TicketManager::getTicketById($idTicket); //lấy ds vé 
-			$food = Food::getFoodById($idFood); //lấy ds thức ăn
-			$film = FilmManager::getFilmById($idFilm); //lấy ds phim
-			$movieTheater = MovieTheater::getMovieTheaterById($idmovieTheater); //lấy ds rạp phim
-
-			foreach ($ticket as $t) {
-				$priceTicket = $t->price; //lấy giá vé
-			}
-			$aumountTicket = TicketManager::sumPrice($priceTicket, $quantityTicket);// thành tiền giá vé
-
-
-			foreach ($food as $f) {
-				$nameFood = $f->nameFood;
-				$priceFood = $f->price; //lấy giá đồ ăn
-			}
-			$amountFood = TicketManager::sumPrice($priceFood, $quantityFood);//thành tiền đồ ăn
-
-			foreach ($film as $n) {
-				$nameFilm = $n->name; //lấy tên phim
+			for($i=0; $i<count($idBookTicket); $i++){
+				$valueLast = $idBookTicket[$i]['maDatVe'];
 			}
 
-			foreach ($movieTheater as $m) {
-				$nameMovieTheater = $m->name; //lấy tên rạp phim
-			}
+			$number = substr( $valueLast, -5);
 
-			$total_price = $aumountTicket + $amountFood; //tính tổng tiền
+			echo idNumber($number);
+
+			
+			// $acc = unserialize($_SESSION['acc']);
+
+			// $nameCustomer = $acc->fullName;
+
+			// $idmovieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
+			// $idFilm = filter_input(INPUT_POST,'namefilm',FILTER_SANITIZE_STRING);
+			// $dateF = filter_input(INPUT_POST,'datef',FILTER_SANITIZE_STRING);
+			// $timeF = filter_input(INPUT_POST,'timef',FILTER_SANITIZE_STRING);
+			// $idTicket = filter_input(INPUT_POST,'idticket',FILTER_SANITIZE_STRING);
+			// $quantityTicket = filter_input(INPUT_POST,'quantityticket',FILTER_SANITIZE_STRING);
+			// $idFood = filter_input(INPUT_POST,'idfood',FILTER_SANITIZE_STRING);
+			// $quantityFood = filter_input(INPUT_POST,'quantityfood',FILTER_SANITIZE_STRING);
+
+			// $ticket = TicketManager::getTicketById($idTicket); //lấy ds vé 
+			// $food = Food::getFoodById($idFood); //lấy ds thức ăn
+			// $film = FilmManager::getFilmById($idFilm); //lấy ds phim
+			// $movieTheater = MovieTheater::getMovieTheaterById($idmovieTheater); //lấy ds rạp phim
+
+			// foreach ($ticket as $t) {
+			// 	$priceTicket = $t->price; //lấy giá vé
+			// }
+			// $aumountTicket = TicketManager::sumPrice($priceTicket, $quantityTicket);// thành tiền giá vé
 
 
-			BookTicketDetail::addBookTicket('HD1',$nameCustomer, $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
+			// foreach ($food as $f) {
+			// 	$nameFood = $f->nameFood;
+			// 	$priceFood = $f->price; //lấy giá đồ ăn
+			// }
+			// $amountFood = TicketManager::sumPrice($priceFood, $quantityFood);//thành tiền đồ ăn
 
-			// $this->render('bookticket',array());
+			// foreach ($film as $n) {
+			// 	$nameFilm = $n->name; //lấy tên phim
+			// }
 
-			redirect("?controller=bookticket&action=detail");// xem thông tin vé
+			// foreach ($movieTheater as $m) {
+			// 	$nameMovieTheater = $m->name; //lấy tên rạp phim
+			// }
+
+			// $total_price = $aumountTicket + $amountFood; //tính tổng tiền
+
+
+			// BookTicketDetail::addBookTicket('VCM00002',$nameCustomer, $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
+
+			// // $this->render('bookticket',array());
+
+			// redirect("?controller=bookticket&action=detail");// xem thông tin vé
 		}
 
 		function detail(){
-			$orderDetail = BookTicketDetail::getBookTicketById('HD1');
+			$orderDetail = BookTicketDetail::getBookTicketById();
 			$this->render('detail',array('orderdetail'=>$orderDetail));
 		}
 	}

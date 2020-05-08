@@ -15,6 +15,6 @@
 	// 	$a = $key->password;
 	// }
 	//$list = ShowTime::getShowTimeFilm('FZ2', 'CGVVC', 'TK2D');
-	$list = FilmManager::getFilmById('EXIT');
+	$list = BookTicketDetail::getIdBookTicket();
 	print_r($list);
 ?>
