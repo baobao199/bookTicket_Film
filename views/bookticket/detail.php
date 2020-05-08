@@ -1,8 +1,3 @@
-<?php
-
-?><?php
-    $acc = unserialize($_SESSION['acc']);
-?>
 <style type="text/css">
 	td{
 		padding-left: 10px;
@@ -80,32 +75,12 @@
 
 						<tr>
 							<th>Loại vé:</th>
-							<td><?= $loaiVe ?></td>
-						</tr>
-
-						<tr>
-							<th>Số lượng vé:</th>
-							<td><?= $soLuongVe ?></td>
-						</tr>
-
-						<tr>
-							<th>Giá vé:</th>
-							<td><?= number_format($giaVe) ?> VNĐ</td>
+							<td><?= $loaiVe ?> - <?= $soLuongVe ?> - <?= number_format($giaVe) ?> VNĐ</td>
 						</tr>
 
 						<tr>
 							<th>Đồ ăn:</th>
-							<td><?= $doAn ?></td>
-						</tr>
-
-						<tr>
-							<th>Số lượng:</th>
-							<td><?= $soLuong ?></td>
-						</tr>
-
-						<tr>
-							<th>Giá Tiền:</th>
-							<td><?= number_format($giaTien)?>  VNĐ</td>
+							<td><?= $doAn ?> - <?= $soLuong ?> - <?= number_format($giaTien)?>  VNĐ</td>
 						</tr>
 
 						<tr>
@@ -124,7 +99,7 @@
 				<br>
 				<form action="?controller=account&action=password" method="post" style="display: inline;" >
 					<input type="hidden" name="username" value="<?= $acc->username ?>">
-					<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-danger btn-sm">Hủy vés</button>
+					<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-danger btn-sm">Hủy vé</button>
 				</form>
 			</div>
 		</div>
