@@ -16,10 +16,6 @@
                                 <p>Thời gian: <?= $m->time ?><br>
                                 Thể loại: <?= $m->genre ?> <br>
                                 Khởi chiếu: <?= $m->startDay ?></p>
-                                <form action="?controller=movieplaying&action=detail" method="post" style="display: inline;">
-                                    <input type="hidden" name="id" value="<?= $m->id ?>"/>
-                                     <button type="submit" class="btn btn-danger">Đặt vé</button>
-                                </form>
 
                                 <form action="?controller=moviecomingsoon&action=detail" method="post" style="display: inline;">
                                     <input type="hidden" name="id" value="<?= $m->id ?>"/>

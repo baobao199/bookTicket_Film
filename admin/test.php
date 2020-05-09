@@ -5,9 +5,10 @@
 	require_once('models/Account.php');
 	require_once('models/ShowTime.php');
 	require_once('models/Food.php');
+	require_once('models/BookTicket.php');
 	require_once('../function.php');
 
 
-	$list = Food::getAll();
+	$list = BookTicket::getAll();
 	print_r($list);
 ?>

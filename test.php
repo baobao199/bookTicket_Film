@@ -16,6 +16,6 @@
 	// 	$a = $key->password;
 	// }
 	//$list = ShowTime::getShowTimeFilm('FZ2', 'CGVVC', 'TK2D');
-	$list = BookTicket::getBookTicketByNameCustomer('Nguyễn Văn A');
+	$list = BookTicketDetail::('Nguyễn Văn A');
 	print_r($list);
 ?>

@@ -72,9 +72,8 @@
 				</div>
 
 				<div class="detail-info-row">
-					<form action="?controller=bookticket">
-						<input type="hidden" name="id" value=""/>
-						<button type="button" class="btn btn-danger">Đặt vé</button>
+					<form action="?controller=bookticket" method="post">
+						<button type="submit" class="btn btn-danger">Đặt vé</button>
 					</form>
 				</div>
 

@@ -6,6 +6,7 @@
 		      <thead>
 		        <tr>
 		        	<th>Mã đặt vé</th>
+		        	<th>Tên khách hàng</th>
 		        	<th>Ngày đặt vé</th>
 		        	<th>Tổng tiền</th>
 		        	<th>Tình trạng</th>
@@ -13,20 +14,25 @@
 		        </tr>
 		      </thead>
 		      <tbody>
-
-			    		<tr>
-				        	<td></td>
-				        	<td></td>
-				        	<td></td>
-				        	<td></td>
-				        	<td style="width: 200px" >
-								<a class="btn btn-info" href="">Xác nhận
-								</a>
-								<a style="margin: 5px" class="btn btn-danger" href="">Xem chi tiết 
-								</a>
-			        	</td>
-		        
-		        </tr>
+		      	<?php
+		      	foreach ($bookticket as $b) {
+		      		?>
+		      		<tr>
+		      			<td><?= $b->id ?></td>
+		      			<td><?= $b->customer ?></td>
+		      			<td><?= $b->dateBook ?></td>
+		      			<td><?= number_format($b->total) ?> VNĐ</td>
+		      			<td><?= $b->status ?></td>
+		      			<td style="width: 200px" >
+		      				<a class="btn btn-info" href="">Xác nhận
+		      				</a>
+		      				<a style="margin: 5px" class="btn btn-danger" href="?controller=bookticket&action=detail&id=<?= $b->id ?>">Xem chi tiết 
+		      				</a>
+		      			</td>
+		      			<?php
+		      		}
+		      		?>
+		      	</tr>
 		      </tbody>
 		    </table>
   		</div>
