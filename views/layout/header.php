@@ -48,7 +48,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tài Khoản</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="?controller=account&action=profile">Thông tin tài khoản</a>
-                                <a class="dropdown-item" href="">Thông tin đặt vé</a>
+                                <a class="dropdown-item" href="?controller=bookticket&action=orderhistory">Thông tin đặt vé</a>
                                 <a class="dropdown-item" href="?controller=account&action=logout">Đăng xuất</a>
                             </div>
                         </li>

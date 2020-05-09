@@ -38,7 +38,7 @@
 			$sql = "SELECT * from datve where khachHang = :nameCustomer";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
-			$stm->execute(array('id'=> $id));
+			$stm->execute(array(':nameCustomer'=> $nameCustomer));
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{

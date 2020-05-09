@@ -21,7 +21,7 @@
     </div>
 
     <?php
-    	foreach ($orderdetail as $o) {
+    	foreach ($infor as $o) {
     		$maHoaDon = $o->id;
     		$khachHang = $o->nameGuess;
     		$tenRap = $o->movietheater;

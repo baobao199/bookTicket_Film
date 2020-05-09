@@ -98,16 +98,25 @@
 			//thêm vào chi tiết đặt vé
 			BookTicketDetail::addBookTicket($billNumber,$nameCustomer, $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
 
-			$this->render('bookticket',array());
-
-			echo $billNumber;
-
-			//redirect("?controller=bookticket&action=detail");// xem thông tin vé
+			redirect("?controller=bookticket&action=orderhistory");// xem thông tin vé
 		}
 
 		function detail(){
-			
-			$this->render('detail',array('orderdetail'=>$orderDetail));
+			$idOrder = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+
+			$infor = BookTicketDetail::getBookTicketById($idOrder);
+
+			$this->render('detail',array('infor'=>$infor));
+		}
+
+		function orderhistory(){
+			//Lấy tên người đặt
+			$acc = unserialize($_SESSION['acc']);
+			$nameCustomer = $acc->fullName;
+
+			$list = BookTicket::getBookTicketByNameCustomer($nameCustomer);
+
+			$this->render('orderhistory', array('list'=>$list));
 		}
 	}
 ?>
