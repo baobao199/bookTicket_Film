@@ -58,5 +58,15 @@
 			}
 			return $list;
 		}
+
+		public function updateStatus($id, $status){
+			$sql = "UPDATE datve SET tinhTrang = :status where maDatVe = :id ";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+
+			$stm->execute(array(':id'=>$id,':status'=>$status));
+
+			return $stm->rowCount() == 1;
+		}
 	}
 ?>
