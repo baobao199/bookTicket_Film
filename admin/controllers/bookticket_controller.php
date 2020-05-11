@@ -24,5 +24,14 @@
 
 			$this->render('detail',array('infor'=>$infor));
 		}
+		function approve(){
+			$idOrder = filter_input(INPUT_GET,'id',FILTER_SANITIZE_STRING);
+
+			BookTicket::updateStatus($idOrder, 'Approved');
+
+			$bookTicket = BookTicket::getAll();
+
+			$this->render('index', array('bookticket'=>$bookTicket));
+		}
 	}
 ?>

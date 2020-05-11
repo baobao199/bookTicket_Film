@@ -29,7 +29,7 @@
 					redirect("?controller=home");
 				}
 				else{
-					redirect("?controller=account","usename or password is not valid");
+					redirect("?controller=account","Mật khẩu hoặc tài khoản không đúng");
 				}
 			}
 		}
@@ -44,7 +44,7 @@
 				$this->render('profile', array(), 'template_2');
 			}
 			else{
-				redirect("?controller=account&action=login","Please login first");
+				redirect("?controller=account","Đăng nhập để xem thông tin");
 			}
 		}
 

@@ -37,7 +37,7 @@
 						<td><?= $l->customer ?></td>
 						<td><?= $l->dateBook ?></td>
 						<td><?= number_format($l->total) ?> VNĐ</td>
-						<td><?= $l->status ?></td>
+						<td style="font-weight: bold; color: red"><?= $l->status ?></td>
 						<td>
 							<form action="?controller=bookticket&action=detail" method="post" style="display: inline;">
 								<input type="hidden" name="id" value="<?= $l->id ?>"/>

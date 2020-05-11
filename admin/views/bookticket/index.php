@@ -22,9 +22,9 @@
 		      			<td><?= $b->customer ?></td>
 		      			<td><?= $b->dateBook ?></td>
 		      			<td><?= number_format($b->total) ?> VNĐ</td>
-		      			<td><?= $b->status ?></td>
+		      			<td style="font-weight: bold; color: red"><?= $b->status ?></td>
 		      			<td style="width: 200px" >
-		      				<a class="btn btn-info" href="">Xác nhận
+		      				<a class="btn btn-info" href="?controller=bookticket&action=approve&id=<?= $b->id ?>">Xác nhận
 		      				</a>
 		      				<a style="margin: 5px" class="btn btn-danger" href="?controller=bookticket&action=detail&id=<?= $b->id ?>">Xem chi tiết 
 		      				</a>

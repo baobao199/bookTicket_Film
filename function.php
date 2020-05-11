@@ -21,7 +21,22 @@
 		return null;
 	}
 
-	function uploadImage($nameFolder){
+	function set_error($message){
+		$_SESSION['one-time-error'] = $message;
+
+	}
+
+	function get_error(){
+		if(isset($_SESSION['one-time-error'])){
+			$value = $_SESSION['one-time-error'];
+			unset($_SESSION['one-time-error']);
+			return $value;
+		}
+		return null;
+	}
+
+	//upload anh
+	function uploadImage($nameFolder){ 
 		if(isset($_FILES['image'])&&$_FILES['image']['name']!=null)
 		{
 			//lấy tên của file:

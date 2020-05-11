@@ -17,7 +17,7 @@
 		'promotion' => array('index','add','delete','edit','upload','update'),
 		'customer' => array('index'),
 		'food'=> array('index'),
-		'bookticket' => array('index', 'detail'),
+		'bookticket' => array('index', 'detail','approve'),
 
 	);
 

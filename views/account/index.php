@@ -27,10 +27,8 @@
 			<input type="password" class="form-control" placeholder="Enter password" id="lname" name="password">
 		</div>
 
-		<div class="form-group form-check">
-			<label class="form-check-label">
-				<input class="form-check-input" type="checkbox"> Remember me
-			</label>
+		<div style="color:Red; font-style: italic;">
+			<?= get_message() ?>
 		</div>
 
 		<button type="submit" class="btn btn-primary">Đăng nhập</button>
