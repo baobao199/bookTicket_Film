@@ -27,7 +27,7 @@
 				
 			}
 			else{
-				redirect("?controller=account");
+				redirect("?controller=account",'Vui lòng đăng nhập để mua vé');
 			}
 		}
 
