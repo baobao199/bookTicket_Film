@@ -24,6 +24,7 @@
     	foreach ($infor as $o) {
     		$maHoaDon = $o->id;
     		$khachHang = $o->nameGuess;
+    		$email = $o->email;
     		$tenRap = $o->movietheater;
     		$tenPhim = $o->nameFilm;
     		$ngayChieu = $o->dateF;
@@ -52,7 +53,7 @@
 							<th>Họ và Tên:</th>
 							<td><?= $khachHang ?></td>
 						</tr>
-
+						
 						<tr>
 							<th>Tên rạp:</th>
 							<td><?= $tenRap ?></td>

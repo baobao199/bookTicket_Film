@@ -50,6 +50,7 @@
 			//Lấy tên người đặt
 			$acc = unserialize($_SESSION['acc']);
 			$nameCustomer = $acc->fullName;
+			$email = $acc->email;
 
 			//Kiểm tra
 			$idmovieTheater = filter_input(INPUT_POST,'movietheater',FILTER_SANITIZE_STRING);
@@ -96,7 +97,7 @@
 			BookTicket::addBookTicket($billNumber, $nameCustomer, $nowDate, $total_price, 'No approved');
 
 			//thêm vào chi tiết đặt vé
-			BookTicketDetail::addBookTicket($billNumber,$nameCustomer, $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
+			BookTicketDetail::addBookTicket($billNumber,$nameCustomer, $email, $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
 
 			redirect("?controller=bookticket&action=orderhistory");// xem thông tin vé
 		}
