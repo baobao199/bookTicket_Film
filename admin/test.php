@@ -9,6 +9,11 @@
 	require_once('../function.php');
 
 
-	$list = BookTicket::getAll();
-	print_r($list);
+	// $list = BookTicket::getAll();
+	// print_r($list);
+
+	$sub = "Your subject";
+	$msg = "Your message";
+	$rec = "nguyenbao605@gmail.com";
+	mail($rec,$sub,$msg);
 ?>

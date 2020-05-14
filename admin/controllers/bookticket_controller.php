@@ -29,6 +29,8 @@
 
 			BookTicket::updateStatus($idOrder, 'Approved');
 
+			
+
 			$bookTicket = BookTicket::getAll();
 
 			$this->render('index', array('bookticket'=>$bookTicket));
