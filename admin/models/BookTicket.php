@@ -36,6 +36,19 @@
 			return $list;
 		}
 
+		public function getById($id){
+			$sql = "SELECT * from datve where maDatVe = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array(':id'=> $id));
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= new BookTicket($item['maDatVe'], $item['khachHang'], $item['ngayDat'], $item['tongTien'], $item['tinhTrang']);		
+			}
+			return $list;
+		}
+
 		public function addBookTicket($id, $customer, $dateBook, $total, $status){
 			$sql = "INSERT INTO datVe VALUES ( :id, :customer, :dateBook, :total, :status)";
 			$db = DB::getDB();

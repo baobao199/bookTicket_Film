@@ -119,5 +119,32 @@
 
 			$this->render('orderhistory', array('list'=>$list));
 		}
+
+		function cancle(){
+			$acc = unserialize($_SESSION['acc']);
+			$nameCustomer = $acc->fullName;
+			
+			$idOrder = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+
+			BookTicket::cancleOrder($idOrder, 'Cancle');
+
+			$list = BookTicket::getBookTicketByNameCustomer($nameCustomer);
+
+			$this->render('orderhistory', array('list'=>$list));
+		}
+
+		function delete(){
+			$idOrder = filter_input(INPUT_POST,'id',FILTER_SANITIZE_STRING);
+
+			$acc = unserialize($_SESSION['acc']);
+			$nameCustomer = $acc->fullName;
+
+			BookTicket::deleteOrder($idOrder);
+			BookTicketDetail::deleteOrderDetail($idOrder);
+
+			$list = BookTicket::getBookTicketByNameCustomer($nameCustomer);
+
+			$this->render('orderhistory', array('list'=>$list));
+		}
 	}
 ?>

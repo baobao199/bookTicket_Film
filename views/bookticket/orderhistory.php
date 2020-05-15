@@ -39,9 +39,14 @@
 						<td><?= number_format($l->total) ?> VNĐ</td>
 						<td style="font-weight: bold; color: red"><?= $l->status ?></td>
 						<td>
-							<form action="?controller=bookticket&action=detail" method="post" style="display: inline;">
+							<form action="?controller=bookticket&action=detail" method="post">
 								<input type="hidden" name="id" value="<?= $l->id ?>"/>
 								<button type="submit" class="btn btn-info">Xem chi tiết</button>
+							</form>
+
+							<form action="?controller=bookticket&action=delete" method="post">
+								<input type="hidden" name="id" value="<?= $l->id ?>"/>
+								<button type="submit" class="btn btn-danger">Xóa vé đã đặt</button>
 							</form>
 						</td>
 					</tr>

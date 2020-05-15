@@ -46,5 +46,24 @@
 			}
 			return $list;
 		}
+
+		public function deleteOrder($id){
+			$sql = "delete from datve where maDatVe = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array(':id'=>$id));
+
+			return $stm->rowCount() == 1; 
+		}
+
+		public function cancleOrder($id, $status){
+			$sql = "UPDATE datve SET tinhTrang = :status where maDatVe = :id ";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+
+			$stm->execute(array(':id'=>$id,':status'=>$status));
+
+			return $stm->rowCount() == 1;
+		}
 	}
 ?>

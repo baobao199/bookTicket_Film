@@ -98,8 +98,8 @@
 				
 				</div>
 				<br>
-				<form action="?controller=account&action=password" method="post" style="display: inline;" >
-					<input type="hidden" name="username" value="<?= $acc->username ?>">
+				<form action="?controller=bookticket&action=cancle" method="post" >
+					<input type="hidden" name="id" value="<?= $maHoaDon  ?>">
 					<button id="rating-click" type="submit" ng-click="showRaiting()" class="btn btn-danger btn-sm">Hủy vé</button>
 				</form>
 			</div>

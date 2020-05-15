@@ -91,5 +91,14 @@
 			return $list;
 		}
 
+		public function deleteOrderDetail($id){
+			$sql = "delete from chitietdatve where maDatVe = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array(':id'=>$id));
+
+			return $stm->rowCount() == 1; 
+		}
+
 	}
 ?>

@@ -12,7 +12,7 @@
 		'showtime' => array('index','detail'),
 		'promotion' => array('index','detail'),
 		'account' => array('index','profile','login','logout','edit', 'update','register', 'upload', 'password', 'updatepass'),
-		'bookticket' => array('index','bookticket','detail','orderhistory'),
+		'bookticket' => array('index','bookticket','detail','orderhistory', 'cancle', 'delete'),
 	);
 
 	if(isset($_GET['controller']))
