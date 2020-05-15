@@ -59,7 +59,7 @@ class BookticketController extends BaseController{
 		"Tên Phim: " .$tenPhim. "\n".
 		"Ngày Chiếu: " .$ngayChieu. "\n".
 		"Giờ Chiếu: " .$gioChieu. "\n".
-		"Loại Vé: " .$gioChieu. "\n".
+		"Loại Vé: " .$loaiVe. "\n".
 		"Số Lượng Vé: " .$soLuongVe. "\n".
 		"Đồ ăn: " .$doAn. "\n".
 		"Số Lượng: " .$soLuong. "\n".

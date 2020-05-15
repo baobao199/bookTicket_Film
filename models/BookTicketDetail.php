@@ -68,9 +68,9 @@
 			return $list;
 		}
 
-		public function addBookTicket($id, $nameGuess, $email,$movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total){
+		public function addBookTicket($id, $nameGuess, $email, $movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total){
 
-			$sql = "INSERT INTO chitietdatve VALUES ( :id, :nameGuess, :email,:movietheater, :nameFilm,:dateF, :timeF, :ticket, :quantityTicket, :priceTicket, :food, :quantityFood, :priceFood, :total)";
+			$sql = "INSERT INTO chitietdatve VALUES ( :id, :nameGuess, :email,:movietheater, :nameFilm, :dateF, :timeF, :ticket, :quantityTicket, :priceTicket, :food, :quantityFood, :priceFood, :total)";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
