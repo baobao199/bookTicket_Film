@@ -15,6 +15,7 @@
 		public $quantityFood;
 		public $priceFood;
 		public $total;
+		public $seat;
 
 
 		/**
@@ -33,8 +34,9 @@
 		 * @param    $quantityFood   
 		 * @param    $priceFood   
 		 * @param    $total   
+		 * @param    $seat   
 		 */
-		public function __construct($id, $nameGuess, $email, $movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total)
+		public function __construct($id, $nameGuess, $email, $movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total, $seat)
 		{
 			$this->id = $id;
 			$this->nameGuess = $nameGuess;
@@ -50,10 +52,8 @@
 			$this->quantityFood = $quantityFood;
 			$this->priceFood = $priceFood;
 			$this->total = $total;
+			$this->seat = $seat;
 		}
-
-
-
 
 		public function getBookTicketById($id){
 			$sql = "SELECT * from chitietdatve where maDatVe = :id";
@@ -63,18 +63,18 @@
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new BookTicketDetail($item['maDatVe'], $item['khachHang'], $item['email'],$item['rapPhim'], $item['tenPhim'], $item['ngayChieu'], $item['gioChieu'], $item['loaiVe'], $item['soLuongVe'], $item['giaVe'], $item['doAn'], $item['soLuong'], $item['giaDoAn'], $item['tongTien']);		
+				$list[]	= new BookTicketDetail($item['maDatVe'], $item['khachHang'], $item['email'],$item['rapPhim'], $item['tenPhim'], $item['ngayChieu'], $item['gioChieu'], $item['loaiVe'], $item['soLuongVe'], $item['giaVe'], $item['doAn'], $item['soLuong'], $item['giaDoAn'], $item['tongTien'], $item['ghe']);		
 			}
 			return $list;
 		}
 
-		public function addBookTicket($id, $nameGuess, $email, $movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total){
+		public function addBookTicket($id, $nameGuess, $email, $movietheater, $nameFilm, $dateF, $timeF, $ticket, $quantityTicket, $priceTicket, $food, $quantityFood, $priceFood, $total, $seat){
 
-			$sql = "INSERT INTO chitietdatve VALUES ( :id, :nameGuess, :email,:movietheater, :nameFilm, :dateF, :timeF, :ticket, :quantityTicket, :priceTicket, :food, :quantityFood, :priceFood, :total)";
+			$sql = "INSERT INTO chitietdatve VALUES ( :id, :nameGuess, :email,:movietheater, :nameFilm, :dateF, :timeF, :ticket, :quantityTicket, :priceTicket, :food, :quantityFood, :priceFood, :total, :seat)";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
-			$stm->execute(array(':id'=>$id,':nameGuess'=>$nameGuess, ':email'=>$email,':movietheater'=>$movietheater, ':nameFilm'=>$nameFilm, ':dateF'=>$dateF, ':timeF'=>$timeF, ':ticket'=>$ticket, ':quantityTicket'=>$quantityTicket, ':priceTicket'=>$priceTicket, ':food'=>$food, ':quantityFood'=>$quantityFood, ':priceFood'=>$priceFood, ':total'=>$total));
+			$stm->execute(array(':id'=>$id,':nameGuess'=>$nameGuess, ':email'=>$email,':movietheater'=>$movietheater, ':nameFilm'=>$nameFilm, ':dateF'=>$dateF, ':timeF'=>$timeF, ':ticket'=>$ticket, ':quantityTicket'=>$quantityTicket, ':priceTicket'=>$priceTicket, ':food'=>$food, ':quantityFood'=>$quantityFood, ':priceFood'=>$priceFood, ':total'=>$total, ':seat'=>$seat));
 
 			return $stm->rowCount() == 1;
 		}

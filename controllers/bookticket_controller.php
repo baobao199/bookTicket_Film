@@ -61,6 +61,12 @@
 			$quantityTicket = filter_input(INPUT_POST,'quantityticket',FILTER_SANITIZE_STRING);
 			$idFood = filter_input(INPUT_POST,'idfood',FILTER_SANITIZE_STRING);
 			$quantityFood = filter_input(INPUT_POST,'quantityfood',FILTER_SANITIZE_STRING);
+			
+    		if(!empty($_POST['seat'])) {
+			    
+			    $seat = implode(" ",$_POST['seat']);
+			
+			}
 
 			$ticket = TicketManager::getTicketById($idTicket); //lấy ds vé 
 			$food = Food::getFoodById($idFood); //lấy ds thức ăn
@@ -97,7 +103,7 @@
 			BookTicket::addBookTicket($billNumber, $nameCustomer, $nowDate, $total_price, 'No approved');
 
 			//thêm vào chi tiết đặt vé
-			BookTicketDetail::addBookTicket($billNumber,$nameCustomer, $email, $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price);
+			BookTicketDetail::addBookTicket($billNumber,$nameCustomer, $email, $nameMovieTheater, $nameFilm, $dateF, $timeF, $idTicket, $quantityTicket, $priceTicket, $nameFood, $quantityFood, $priceFood, $total_price, $seat);
 
 			redirect("?controller=bookticket&action=orderhistory");// xem thông tin vé
 		}

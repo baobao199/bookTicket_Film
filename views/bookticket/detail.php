@@ -36,6 +36,7 @@
     		$soLuong = $o->quantityFood;
     		$giaTien = $o->priceFood;
     		$tongTien = $o->total;
+    		$ghe = $o->seat;
     	}
     ?>
 <div class="container">     
@@ -82,6 +83,11 @@
 						<tr>
 							<th>Đồ ăn:</th>
 							<td><?= $doAn ?> - <?= $soLuong ?> - <?= number_format($giaTien)?>  VNĐ</td>
+						</tr>
+
+						<tr>
+							<th>Số ghế:</th>
+							<td><?= $ghe ?></td>
 						</tr>
 
 						<tr>
