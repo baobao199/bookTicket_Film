@@ -16,24 +16,11 @@
 	// 	$a = $key->password;
 	// }
 	//$list = ShowTime::getShowTimeFilm('FZ2', 'CGVVC', 'TK2D');
-	$list = BookTicketDetail::getBookTicketById('VCM00004');
-	print_r($list);
+	$list = ShowTime::getAll();
+	//print_r($list);
+
+	$str = "A1 A2 A3";
+	print_r (explode(" ",$str));
 
 
-?>
-
-<form action="test.php" method="post">
-    <input type="checkbox" name="check_list[]" value="value 1">
-    <input type="checkbox" name="check_list[]" value="value 2">
-    <input type="checkbox" name="check_list[]" value="value 3">
-    <input type="checkbox" name="check_list[]" value="value 4">
-    <input type="checkbox" name="check_list[]" value="value 5">
-    <input type="submit" />
-</form>
-<?php
-if(!empty($_POST['check_list'])) {
-    foreach($_POST['check_list'] as $check) {
-            echo $check; 
-    }
-}
 ?>

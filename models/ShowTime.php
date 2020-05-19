@@ -10,6 +10,7 @@
 		public $dateF;
 		public $timeF;
 		public $seat;
+		public $seatSelected;
 
 
 		/**
@@ -23,8 +24,9 @@
 		 * @param    $dateF   
 		 * @param    $timeF   
 		 * @param    $seat   
+		 * @param    $seatSelected   
 		 */
-		public function __construct($id, $idFilm, $nameFilm, $idMovieTheater, $room, $ticket, $dateF, $timeF, $seat)
+		public function __construct($id, $idFilm, $nameFilm, $idMovieTheater, $room, $ticket, $dateF, $timeF, $seat, $seatSelected)
 		{
 			$this->id = $id;
 			$this->idFilm = $idFilm;
@@ -35,6 +37,7 @@
 			$this->dateF = $dateF;
 			$this->timeF = $timeF;
 			$this->seat = $seat;
+			$this->seatSelected = $seatSelected;
 		}
 
 		public function getAll(){
@@ -44,7 +47,7 @@
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe']);		
+				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe'], $item['gheDaChon']);		
 			}
 			return json_encode($list);
 		}

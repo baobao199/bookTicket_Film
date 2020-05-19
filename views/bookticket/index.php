@@ -131,6 +131,9 @@
         opt.innerHTML = currentDateList[i]['dateF'];
         select.appendChild(opt);
       }
+
+      
+
   }
 
   var currentDate;
@@ -172,10 +175,11 @@
      console.log(currentFilm);
      console.log(currentDate);
 
-     let currentFilmList = [...movieList].filter( film => film['idFilm'] === currentFilm );
+      let currentFilmList = [...movieList].filter( film => film['idFilm'] === currentFilm );
       let currentMovieTheaterList = [...currentFilmList].filter( film => film['idMovieTheater'] === currentIdMovieTheater);
       let currentTimeList = [...currentMovieTheaterList].filter( film => film['dateF'] === currentDate);
       let currentTicketList = [...currentMovieTheaterList].filter( film => film['timeF'] === timeFilm);
+
 
       var select = document.getElementById("ticket_select");
       select.innerHTML = "";
@@ -188,6 +192,20 @@
         opt.innerHTML = currentTimeList[i]['ticket'];
         select.appendChild(opt);
       }
+
+      let currentSeat = [...currentTimeList].filter( film => film['timeF'] === timeFilm);
+      console.log(currentSeat[0]['seatSelected']);
+
+      let seatSelected = currentSeat[0]['seatSelected'];
+      for (var i = 0; i <= 9; i++) {
+          if(String(seatSelected).includes(i)){
+            $("#A"+i).css("display", "none");
+          }
+          else{
+          }
+      }
+
+      
 
  }
 
@@ -298,7 +316,11 @@
           box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
           background-color:#ccc;
         }
-
+        .redBox::before
+        {
+          content:"";
+          background:Red;
+        }
         input[type=checkbox]:checked:before {
           background-color:Green;
           font-size: 15px;
@@ -343,16 +365,17 @@
 
           <tr>
             <td>A</td>
-            <td><input type="checkbox" class="seats" value="A1" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" value="A2" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A1" value="A1" name="seat[]" id="select" 
+            onclick="clicked()"></td>
+            <td><input type="checkbox" class="seats" id = "A2"value="A2" name="seat[]"></td>
             <td class="seatGap"></td>
-            <td><input type="checkbox" class="seats" value="A3" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" value="A4" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" value="A5" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" value="A6" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" value="A7" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" value="A8" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" value="A9" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A3"value="A3" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A4"value="A4" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A5"value="A5" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A6"value="A6" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A7"value="A7" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A8"value="A8" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A9" value="A9" name="seat[]"></td>
           </tr>
 
           <tr>
