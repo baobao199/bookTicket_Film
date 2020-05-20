@@ -61,6 +61,8 @@
 			$quantityTicket = filter_input(INPUT_POST,'quantityticket',FILTER_SANITIZE_STRING);
 			$idFood = filter_input(INPUT_POST,'idfood',FILTER_SANITIZE_STRING);
 			$quantityFood = filter_input(INPUT_POST,'quantityfood',FILTER_SANITIZE_STRING);
+			$idShowTime = filter_input(INPUT_POST,'idShowTime',FILTER_SANITIZE_STRING);
+
 			
     		if(!empty($_POST['seat'])) {
 			    
@@ -92,6 +94,17 @@
 			foreach ($movieTheater as $m) {
 				$nameMovieTheater = $m->name; //lấy tên rạp phim
 			}
+
+			//cập nhật ghế đã chọn ở xuất chiếu phim
+			$ShowTimeById = ShowTime::getShowTimeById($idShowTime);
+			foreach ($ShowTimeById as $s) {
+				$seatSelected = $s->seatSelected;//lấy ghế đã chọn cập nhật thêm
+			}
+
+			$all = $seatSelected." ".$seat;
+
+			ShowTime::updateSeatSelected($idShowTime, $all);
+
 
 			$total_price = $aumountTicket + $amountFood; //tính tổng tiền
 

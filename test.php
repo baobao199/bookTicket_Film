@@ -11,16 +11,11 @@
 	require_once('models/BookTicket.php');
 	require_once('function.php');
 
-	// $list = Account::getAccountById('user1');
-	// foreach ($list as $key) {
-	// 	$a = $key->password;
-	// }
-	//$list = ShowTime::getShowTimeFilm('FZ2', 'CGVVC', 'TK2D');
-	$list = ShowTime::getAll();
-	//print_r($list);
-
-	$str = "A1 A2 A3";
-	print_r (explode(" ",$str));
-
+	$list = ShowTime::getShowTimeById("MXC3");
+	foreach ($list as $l) {
+		$test = $l->seatSelected;
+	}
+	$tmp = "A1 A2";
+	echo $test." ".$tmp;
 
 ?>

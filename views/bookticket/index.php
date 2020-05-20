@@ -192,7 +192,11 @@
         opt.innerHTML = currentTimeList[i]['ticket'];
         select.appendChild(opt);
       }
+      //lấy mã xuất chiếu
+      var idShowTime = document.getElementById('idShowTime');
+      idShowTime.value = currentTimeList[0]['id'] ;
 
+      //ghế đã chọn
       let currentSeat = [...currentTimeList].filter( film => film['timeF'] === timeFilm);
       console.log(currentSeat[0]['seatSelected']);
 
@@ -228,6 +232,8 @@
 
 <div class="container">
   <form action="?controller=bookticket&action=bookticket" method="post">
+
+    <input type="hidden" id ="idShowTime" name="idShowTime">
 
     <h4>Chọn rạp chiếu</h4>
     <div class="form-group">

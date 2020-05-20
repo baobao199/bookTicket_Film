@@ -80,5 +80,28 @@
 			return $list;
 			
 		}
+
+		public function updateSeatSelected($id, $seatSelected){
+			$sql = "UPDATE xuatchieuphim SET gheDaChon = :seatSelected where maXuatChieu = :id ";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+
+			$stm->execute(array(':id'=>$id, ':seatSelected'=>$seatSelected));
+
+			return $stm->rowCount() == 1;
+		}
+
+		public function getShowTimeById($id){
+			$sql = "select * from xuatchieuphim where maXuatChieu = :id";
+			$db = DB::getDB();
+			$stm = $db->prepare($sql);
+			$stm->execute(array('id'=> $id));
+			$list = array();
+			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
+			{
+				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe'], $item['gheDaChon']);		
+			}
+			return $list;
+		}
 	}
 ?>
