@@ -197,16 +197,31 @@
       console.log(currentSeat[0]['seatSelected']);
 
       let seatSelected = currentSeat[0]['seatSelected'];
-      for (var i = 0; i <= 9; i++) {
-          if(String(seatSelected).includes(i)){
-            $("#A"+i).css("display", "none");
+
+      ar = seatSelected.split(' '); // no separator passed to split
+      
+      for(var i = 0; i < ar.length;  i++){
+          if(ar[i].substring(0,1) === "A"){
+            console.log(ar[i]);
+            $("#"+ar[i]).css("display", "none");
           }
-          else{
+          else if(ar[i].substring(0,1) === "B"){
+            console.log(ar[i]);
+            $("#"+ar[i]).css("display", "none");
+          }
+          else if(ar[i].substring(0,1) === "C"){
+            console.log(ar[i]);
+            $("#"+ar[i]).css("display", "none");
+          }
+          else if(ar[i].substring(0,1) === "D"){
+            console.log(ar[i]);
+            $("#"+ar[i]).css("display", "none");
+          }
+          else if(ar[i].substring(0,1) === "E"){
+            console.log(ar[i]);
+            $("#"+ar[i]).css("display", "none");
           }
       }
-
-      
-
  }
 
 </script>
@@ -328,17 +343,12 @@
         div#empty {
           width: 20px;
           height: 20px;
-          background: white;
+          background: #ccc;
         }
         div#choose {
           width: 20px;
           height: 20px;
           background: green;
-        }
-        div#choosed {
-          width: 20px;
-          height: 20px;
-          background: red;
         }
     </style>
 
@@ -369,76 +379,76 @@
             onclick="clicked()"></td>
             <td><input type="checkbox" class="seats" id = "A2"value="A2" name="seat[]"></td>
             <td class="seatGap"></td>
-            <td><input type="checkbox" class="seats" id = "A3"value="A3" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" id = "A4"value="A4" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" id = "A5"value="A5" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" id = "A6"value="A6" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" id = "A7"value="A7" name="seat[]"></td>
-            <td><input type="checkbox" class="seats" id = "A8"value="A8" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A3" value="A3" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A4" value="A4" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A5" value="A5" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A6" value="A6" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A7" value="A7" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "A8" value="A8" name="seat[]"></td>
             <td><input type="checkbox" class="seats" id = "A9" value="A9" name="seat[]"></td>
           </tr>
 
           <tr>
             <td>B</td>
-            <td><input type="checkbox" class="seats" value="B1" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="B2" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "B1" value="B1" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "B2" value="B2" name="seat[]"></td>
             <td class="seatGap"></td>
-            <td><input type="checkbox" class="seats" value="B3" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="B4" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="B5" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="B6" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="B7" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="B8" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="B9" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "B3" value="B3" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "B4" value="B4" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "B5" value="B5" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "B6" value="B6" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "B7" value="B7" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "B8" value="B8" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "B9" value="B9" name="seat[]"></td>
           </tr>
 
           <tr>
             <td>C</td>
-            <td><input type="checkbox" class="seats" value="C1" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="C2" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "C1" value="C1" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "C2" value="C2" name="seat[]"></td>
             <td class="seatGap"></td>
-            <td><input type="checkbox" class="seats" value="C3" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="C4" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="C5" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="C6" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="C7" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="C8" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="C9" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "C3" value="C3" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "C4" value="C4" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "C5" value="C5" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "C6" value="C6" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "C7" value="C7" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "C8" value="C8" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "C9" value="C9" name="seat[]"></td>
           </tr>
 
           <tr>
             <td>D</td>
-            <td><input type="checkbox" class="seats" value="D1" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="D2" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "D1" value="D1" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "D2" value="D2" name="seat[]"></td>
             <td class="seatGap"></td>
-            <td><input type="checkbox" class="seats" value="D3" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="D4" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="D5" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="D6" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="D7" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="D8" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="D9" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "D3" value="D3" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "D4" value="D4" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "D5" value="D5" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "D6" value="D6" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "D7" value="D7" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "D8" value="D8" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "D9" value="D9" name="seat[]"></td>
           </tr>
 
           <tr>
             <td>E</td>
-            <td><input type="checkbox" class="seats" value="E1" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="E2" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "E1" value="E1" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "E2" value="E2" name="seat[]"></td>
             <td class="seatGap"></td>
-            <td><input type="checkbox" class="seats" value="E3" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="E4" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="E5" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="E6" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="E7" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="E8" name="seat"></td>
-            <td><input type="checkbox" class="seats" value="E9" name="seat"></td>
+            <td><input type="checkbox" class="seats" id = "E3" value="E3" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "E4" value="E4" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "E5" value="E5" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "E6" value="E6" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "E7" value="E7" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "E8" value="E8" name="seat[]"></td>
+            <td><input type="checkbox" class="seats" id = "E9" value="E9" name="seat[]"></td>
           </tr>
 
       </table>
       <tr class="note">
           <td><div id="empty"></div>Ghế trống</td>
           <td><div id="choose"></div>Đang Chọn</td>
-          <td><div id="choosed"></div>Đã chọn</td>
+
       </tr>
 
     </div>
