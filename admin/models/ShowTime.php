@@ -38,18 +38,18 @@
 		}
 
 		public function getAll(){
-			$sql = "select * from xuatchieuphim";
+			$sql = "select * from suatchieuphim";
 			$db = DB::getDB();
 			$stm = $db->query($sql);
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) {
-				$list[] = new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe']);
+				$list[] = new ShowTime($item['maSuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe']);
 			}
 			return $list;
 		}
 
 		public function deleteShowTime($id){
-			$sql = "delete from xuatchieuphim where maXuatChieu = :id";
+			$sql = "delete from suatchieuphim where maSuatChieu = :id";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array(':id'=>$id));
@@ -57,18 +57,18 @@
 			return $stm->rowCount() == 1;
 		}
 
-		public function addShowTime($id, $idFilm, $nameFilm, $idMovieTheater, $room, $ticket, $dateF, $timeF, $seat){
-			$sql = "INSERT INTO xuatchieuphim VALUES (:id, :idFilm, :nameFilm, :idMovieTheater, :room, :ticket, :dateF, :timeF,  :seat)";
+		public function addShowTime($id, $idFilm, $nameFilm, $idMovieTheater, $room, $ticket, $dateF, $timeF, $seat, $chooseSeat){
+			$sql = "INSERT INTO suatchieuphim VALUES (:id, :idFilm, :nameFilm, :idMovieTheater, :room, :ticket, :dateF, :timeF,  :seat, :chooseSeat)";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
-			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':nameFilm'=>$nameFilm, ':idMovieTheater'=>$idMovieTheater, ':room'=>$room, ':ticket'=>$ticket, ':dateF'=>$dateF, ':timeF'=>$timeF, ':seat'=>$seat));
+			$stm->execute(array(':id'=>$id, ':idFilm'=>$idFilm, ':nameFilm'=>$nameFilm, ':idMovieTheater'=>$idMovieTheater, ':room'=>$room, ':ticket'=>$ticket, ':dateF'=>$dateF, ':timeF'=>$timeF, ':seat'=>$seat, ':chooseSeat'=>$chooseSeat));
 
 			return $stm->rowCount() == 1;
 		}
 
 		public function updateShowTime($id, $idFilm, $nameFilm, $idMovieTheater, $room, $ticket, $dateF, $timeF, $seat){
-			$sql = "UPDATE xuatchieuphim SET maPhim = :idFilm, tenPhim = :nameFilm, maRapPhim = :idMovieTheater, phongChieu = :room, loaiVe = :ticket, ngayChieu = :dateF, gioChieu = :timeF, ghe = :seat where maXuatChieu = :id ";
+			$sql = "UPDATE suatchieuphim SET maPhim = :idFilm, tenPhim = :nameFilm, maRapPhim = :idMovieTheater, phongChieu = :room, loaiVe = :ticket, ngayChieu = :dateF, gioChieu = :timeF, ghe = :seat where maSuatChieu = :id ";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
@@ -78,14 +78,14 @@
 		}
 
 		public function getShowTimeById($id){
-			$sql = "select * from xuatchieuphim where maXuatChieu = :id";
+			$sql = "select * from suatchieuphim where maSuatChieu = :id";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array('id'=> $id));
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[] = new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe']);	
+				$list[] = new ShowTime($item['maSuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe']);	
 			}
 			return $list;
 		}

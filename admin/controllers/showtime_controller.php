@@ -29,7 +29,7 @@
 			$timeF = filter_input(INPUT_POST,'timef',FILTER_SANITIZE_STRING);
 			$seat = filter_input(INPUT_POST,'seat',FILTER_SANITIZE_STRING);
 
-			$showTime = ShowTime::addShowTime($id, $idFilm, $nameFilm, $movieTheater, $room, $ticket, $dateF, $timeF, $seat);
+			$showTime = ShowTime::addShowTime($id, $idFilm, $nameFilm, $movieTheater, $room, $ticket, $dateF, $timeF, $seat, '');
 
 			header("LOCATION: index.php?controller=showtime");
 

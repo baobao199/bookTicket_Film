@@ -1,14 +1,14 @@
 <link rel="stylesheet" type="text/css" href="css/content.css">
 <div class="container">
-		<div><h2>DANH SÁCH XUẤT CHIẾU</h2></div>
+		<div><h2>DANH SÁCH SUẤT CHIẾU</h2></div>
 		<div>
-			<a class="btn btn-info" href="?controller=showtime&action=add">Thêm xuất chiếu</a>
+			<a class="btn btn-info" href="?controller=showtime&action=add">Thêm suất chiếu</a>
 		</div>
 		<div class="table-responsive">
 		    <table class="table table-bordered">
 		      <thead>
 		        <tr>
-		        	<th>Mã xuất chiếu</th>
+		        	<th>Mã suất chiếu</th>
 		        	<th>Mã phim</th>
 		        	<th>Tên phim</th>
 		        	<th>Rạp chiếu</th>

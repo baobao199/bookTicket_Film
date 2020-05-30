@@ -41,19 +41,19 @@
 		}
 
 		public function getAll(){
-			$sql = "select * from xuatchieuphim";
+			$sql = "select * from suatchieuphim";
 			$db = DB::getDB();
 			$stm = $db->query($sql);
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe'], $item['gheDaChon']);		
+				$list[]	= new ShowTime($item['maSuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe'], $item['gheDaChon']);		
 			}
 			return json_encode($list);
 		}
 
 		public function getFilm($idMovieTheater, $dateF){
-			$sql = "SELECT DISTINCT maphim, tenPhim FROM xuatchieuphim where maRapPhim = :idMovieTheater and ngayChieu = :dateF";
+			$sql = "SELECT DISTINCT maphim, tenPhim FROM suatchieuphim where maRapPhim = :idMovieTheater and ngayChieu = :dateF";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array('idMovieTheater'=> $idMovieTheater, ':dateF'=>$dateF));
@@ -66,7 +66,7 @@
 		}
 		
 		public function getShowTimeFilm($idFilm, $idMovieTheater, $ticket,  $dateF){
-			$sql = "select gioChieu from xuatchieuphim where maPhim = :idFilm and maRapPhim = :idMovieTheater and loaiVe = :ticket  and ngayChieu = :dateF";
+			$sql = "select gioChieu from suatchieuphim where maPhim = :idFilm and maRapPhim = :idMovieTheater and loaiVe = :ticket  and ngayChieu = :dateF";
 			$db = DB::getDB();
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
@@ -82,7 +82,7 @@
 		}
 
 		public function updateSeatSelected($id, $seatSelected){
-			$sql = "UPDATE xuatchieuphim SET gheDaChon = :seatSelected where maXuatChieu = :id ";
+			$sql = "UPDATE suatchieuphim SET gheDaChon = :seatSelected where maSuatChieu = :id ";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 
@@ -92,14 +92,14 @@
 		}
 
 		public function getShowTimeById($id){
-			$sql = "select * from xuatchieuphim where maXuatChieu = :id";
+			$sql = "select * from suatchieuphim where maSuatChieu = :id";
 			$db = DB::getDB();
 			$stm = $db->prepare($sql);
 			$stm->execute(array('id'=> $id));
 			$list = array();
 			foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $item) 
 			{
-				$list[]	= new ShowTime($item['maXuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe'], $item['gheDaChon']);		
+				$list[]	= new ShowTime($item['maSuatChieu'], $item['maPhim'], $item['tenPhim'], $item['maRapPhim'], $item['phongChieu'], $item['loaiVe'], $item['ngayChieu'], $item['gioChieu'], $item['ghe'], $item['gheDaChon']);		
 			}
 			return $list;
 		}

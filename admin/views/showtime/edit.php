@@ -2,7 +2,7 @@
 <div class="container">
 		<?php 
 			foreach ($showtime as $s) {
-				$maXuatChieu = $s->id;
+				$maSuatChieu = $s->id;
 				$maphim = $s->idFilm;
 				$tenPhim = $s->nameFilm;
 				$rapPhim = $s->idMovieTheater;
@@ -13,12 +13,12 @@
 				$ghe = $s->seat;
 			}
 		?>
-  		<h2>SỬA XUẤT CHIẾU PHIM</h2>
+  		<h2>SỬA SUẤT CHIẾU PHIM</h2>
 		<div class="container-left">
 	    	<form action="?controller=showtime&action=update" method="post">
 	    		<div class="form-group">
-	      			<label>Mã xuất chiếu</label>
-	      			<input value="<?= $maXuatChieu ?>" type="text" class="form-control" name="id">
+	      			<label>Mã suất chiếu</label>
+	      			<input value="<?= $maSuatChieu ?>" type="text" class="form-control" name="id">
 	   			</div>
 		    	<div class="form-group">
 		      		<label>Mã phim</label>

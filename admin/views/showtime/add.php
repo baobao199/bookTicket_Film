@@ -1,10 +1,10 @@
 <link rel="stylesheet" type="text/css" href="css/add.css">
 <div class="container">
-  		<h2>THÊM XUẤT CHIẾU MỚI</h2>
+  		<h2>THÊM SUẤT CHIẾU MỚI</h2>
 		<div class="container-left">
 	    	<form action="?controller=showtime&action=upload" method="post" enctype="multipart/form-data">
 	    		<div class="form-group">
-	      			<label>Mã xuất chiếu</label>
+	      			<label>Mã suất chiếu</label>
 	      			<input type="text" class="form-control" name="id">
 	   			</div>
 		    	<div class="form-group">
